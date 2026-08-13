@@ -1,1 +1,3599 @@
+<!DOCTYPE html>
 
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>MUTERSIL — Produção</title>
+
+
+  <style>
+
+    :root {
+
+      --bg:
+        #06101c;
+
+      --bg2:
+        #0c1d31;
+
+      --card:
+        #10253c;
+
+      --card2:
+        #0b1b2d;
+
+      --border:
+        rgba(
+          255,
+          255,
+          255,
+          .10
+        );
+
+      --white:
+        #ffffff;
+
+      --text:
+        #f1f7fd;
+
+      --muted:
+        #9fb3c8;
+
+      --blue:
+        #1498ff;
+
+      --cyan:
+        #10d8e8;
+
+      --green:
+        #24d68f;
+
+      --yellow:
+        #ffd052;
+
+      --red:
+        #ff4357;
+
+      --red2:
+        #c91e38;
+
+    }
+
+
+    * {
+
+      box-sizing:
+        border-box;
+
+    }
+
+
+    html,
+    body {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      margin:
+        0;
+
+      overflow:
+        hidden;
+
+    }
+
+
+    body {
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color:
+        var(
+          --text
+        );
+
+      background:
+
+        radial-gradient(
+          circle at 90% 0%,
+          #17497c 0%,
+          #0a1c30 32%,
+          #050b13 75%
+        );
+
+    }
+
+
+    #app {
+
+      position:
+        relative;
+
+      width:
+        100vw;
+
+      height:
+        100vh;
+
+      overflow:
+        hidden;
+
+    }
+
+
+    /* ==========================================================
+       TELAS
+       ========================================================== */
+
+    .screen {
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      padding:
+        20px 32px 55px;
+
+      opacity:
+        0;
+
+      pointer-events:
+        none;
+
+      transform:
+        translateX(
+          35px
+        );
+
+      transition:
+        opacity .45s ease,
+        transform .45s ease;
+
+    }
+
+
+    .screen.active {
+
+      opacity:
+        1;
+
+      pointer-events:
+        auto;
+
+      transform:
+        translateX(
+          0
+        );
+
+    }
+
+
+    /* ==========================================================
+       HEADER
+       ========================================================== */
+
+    .header {
+
+      height:
+        100px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        180px 1fr 250px;
+
+      gap:
+        16px;
+
+      align-items:
+        center;
+
+      margin-bottom:
+        15px;
+
+    }
+
+
+    .logo {
+
+      max-width:
+        165px;
+
+      max-height:
+        85px;
+
+      object-fit:
+        contain;
+
+    }
+
+
+    .title-area {
+
+      text-align:
+        center;
+
+    }
+
+
+    .title {
+
+      font-size:
+        clamp(
+          30px,
+          2.6vw,
+          52px
+        );
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .4px;
+
+      line-height:
+        1;
+
+    }
+
+
+    .subtitle {
+
+      margin-top:
+        9px;
+
+      color:
+        var(
+          --muted
+        );
+
+      font-size:
+        clamp(
+          15px,
+          1.05vw,
+          21px
+        );
+
+      font-weight:
+        700;
+
+    }
+
+
+    .header-right {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      align-items:
+        flex-end;
+
+      gap:
+        7px;
+
+    }
+
+
+    .live {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+      color:
+        var(
+          --green
+        );
+
+      font-size:
+        16px;
+
+      font-weight:
+        900;
+
+    }
+
+
+    .live-dot {
+
+      width:
+        11px;
+
+      height:
+        11px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(
+          --green
+        );
+
+      box-shadow:
+        0 0 14px
+        var(
+          --green
+        );
+
+      animation:
+        piscar
+        1.4s
+        infinite;
+
+    }
+
+
+    @keyframes piscar {
+
+      0%,
+      100% {
+
+        opacity:
+          1;
+
+      }
+
+      50% {
+
+        opacity:
+          .25;
+
+      }
+
+    }
+
+
+    .updated {
+
+      color:
+        var(
+          --muted
+        );
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
+    }
+
+
+    /* ==========================================================
+       CARDS
+       ========================================================== */
+
+    .card {
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(
+            20,
+            43,
+            70,
+            .96
+          ),
+          rgba(
+            8,
+            22,
+            38,
+            .97
+          )
+        );
+
+      border:
+        1px solid
+        var(
+          --border
+        );
+
+      border-radius:
+        18px;
+
+      box-shadow:
+
+        0 15px 45px
+        rgba(
+          0,
+          0,
+          0,
+          .28
+        );
+
+    }
+
+
+    /* ==========================================================
+       PRODUÇÃO AGORA
+       ========================================================== */
+
+    .overview {
+
+      height:
+        calc(
+          100vh -
+          180px
+        );
+
+      padding:
+        15px 18px;
+
+    }
+
+
+    .overview-table {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      border-collapse:
+        collapse;
+
+      table-layout:
+        fixed;
+
+    }
+
+
+    .overview-table th {
+
+      color:
+        var(
+          --muted
+        );
+
+      font-size:
+        clamp(
+          14px,
+          1vw,
+          19px
+        );
+
+      text-transform:
+        uppercase;
+
+      padding:
+        10px;
+
+      text-align:
+        center;
+
+      border-bottom:
+        2px solid
+        rgba(
+          255,
+          255,
+          255,
+          .09
+        );
+
+    }
+
+
+    .overview-table td {
+
+      padding:
+        11px 12px;
+
+      text-align:
+        center;
+
+      border-bottom:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          .07
+        );
+
+      font-size:
+        clamp(
+          19px,
+          1.4vw,
+          29px
+        );
+
+      font-weight:
+        800;
+
+    }
+
+
+    .overview-table .name {
+
+      text-align:
+        left;
+
+      font-size:
+        clamp(
+          20px,
+          1.55vw,
+          32px
+        );
+
+      font-weight:
+        900;
+
+    }
+
+
+    .production-value {
+
+      font-size:
+        1.35em;
+
+      font-weight:
+        950;
+
+    }
+
+
+    .unit {
+
+      display:
+        block;
+
+      margin-top:
+        3px;
+
+      font-size:
+        11px;
+
+      color:
+        var(
+          --muted
+        );
+
+    }
+
+
+    .status-pill {
+
+      display:
+        inline-flex;
+
+      min-width:
+        130px;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      padding:
+        9px 14px;
+
+      border-radius:
+        999px;
+
+      font-size:
+        16px;
+
+      font-weight:
+        900;
+
+    }
+
+
+    .status-ok {
+
+      color:
+        #06170f;
+
+      background:
+        var(
+          --green
+        );
+
+    }
+
+
+    .status-alert {
+
+      color:
+        #fff;
+
+      background:
+        var(
+          --red
+        );
+
+    }
+
+
+    .status-none {
+
+      color:
+        #d7e0e9;
+
+      background:
+        #52647a;
+
+    }
+
+
+    .good {
+
+      color:
+        var(
+          --green
+        );
+
+    }
+
+
+    .bad {
+
+      color:
+        var(
+          --red
+        );
+
+    }
+
+
+    /* ==========================================================
+       INDICADORES
+       ========================================================== */
+
+    .machine-grid {
+
+      height:
+        calc(
+          100vh -
+          180px
+        );
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          minmax(
+            0,
+            1fr
+          )
+        );
+
+      gap:
+        15px;
+
+    }
+
+
+    .machine-grid.single {
+
+      grid-template-columns:
+        1fr;
+
+    }
+
+
+    .machine {
+
+      padding:
+        19px 20px;
+
+      overflow:
+        hidden;
+
+    }
+
+
+    .machine-title {
+
+      text-align:
+        center;
+
+      font-size:
+        clamp(
+          25px,
+          1.8vw,
+          37px
+        );
+
+      font-weight:
+        950;
+
+      margin-bottom:
+        17px;
+
+    }
+
+
+    .turn {
+
+      padding:
+        14px 0;
+
+      border-top:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          .08
+        );
+
+    }
+
+
+    .turn-top {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.2fr 1fr 1fr 1fr;
+
+      gap:
+        9px;
+
+      align-items:
+        center;
+
+    }
+
+
+    .turn-name {
+
+      font-size:
+        clamp(
+          16px,
+          1.15vw,
+          23px
+        );
+
+      font-weight:
+        900;
+
+    }
+
+
+    .turn-value {
+
+      text-align:
+        center;
+
+      font-size:
+        clamp(
+          17px,
+          1.15vw,
+          23px
+        );
+
+      font-weight:
+        900;
+
+    }
+
+
+    .labels {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.2fr 1fr 1fr 1fr;
+
+      gap:
+        9px;
+
+      color:
+        var(
+          --muted
+        );
+
+      font-size:
+        11px;
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        3px;
+
+    }
+
+
+    .labels div:not(
+      :first-child
+    ) {
+
+      text-align:
+        center;
+
+    }
+
+
+    .progress {
+
+      margin-top:
+        9px;
+
+      width:
+        100%;
+
+      height:
+        13px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          .08
+        );
+
+      border-radius:
+        999px;
+
+      overflow:
+        hidden;
+
+      position:
+        relative;
+
+    }
+
+
+    .progress-fill {
+
+      height:
+        100%;
+
+      border-radius:
+        inherit;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          var(
+            --blue
+          ),
+          var(
+            --cyan
+          )
+        );
+
+      transition:
+        width .6s ease;
+
+    }
+
+
+    .meta-line {
+
+      position:
+        absolute;
+
+      top:
+        0;
+
+      bottom:
+        0;
+
+      right:
+        0;
+
+      width:
+        3px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          .6
+        );
+
+    }
+
+
+    .machine-footer {
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      margin-top:
+        18px;
+
+      padding-top:
+        12px;
+
+      border-top:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          .08
+        );
+
+      color:
+        var(
+          --muted
+        );
+
+      font-size:
+        14px;
+
+      font-weight:
+        800;
+
+    }
+
+
+    /* ==========================================================
+       ÚLTIMOS APONTAMENTOS
+       ========================================================== */
+
+    .recent-card {
+
+      height:
+        calc(
+          100vh -
+          180px
+        );
+
+      padding:
+        8px 14px 12px;
+
+    }
+
+
+    .recent-wrap {
+
+      height:
+        calc(
+          100% -
+          34px
+        );
+
+      overflow:
+        hidden;
+
+    }
+
+
+    .recent-table {
+
+      width:
+        100%;
+
+      border-collapse:
+        separate;
+
+      border-spacing:
+        0 5px;
+
+      table-layout:
+        fixed;
+
+    }
+
+
+    .recent-table th {
+
+      padding:
+        7px;
+
+      color:
+        var(
+          --muted
+        );
+
+      text-transform:
+        uppercase;
+
+      font-size:
+        clamp(
+          12px,
+          .85vw,
+          16px
+        );
+
+      text-align:
+        left;
+
+    }
+
+
+    .recent-table td {
+
+      padding:
+        8px 7px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          .045
+        );
+
+      border-top:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          .055
+        );
+
+      border-bottom:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          .055
+        );
+
+      font-size:
+        clamp(
+          13px,
+          .98vw,
+          19px
+        );
+
+      font-weight:
+        700;
+
+      line-height:
+        1.13;
+
+    }
+
+
+    .recent-table td:first-child {
+
+      border-radius:
+        9px 0 0 9px;
+
+    }
+
+
+    .recent-table td:last-child {
+
+      border-radius:
+        0 9px 9px 0;
+
+    }
+
+
+    .recent-table tr.alert td {
+
+      color:
+        #ffffff;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(
+            236,
+            42,
+            66,
+            .94
+          ),
+          rgba(
+            189,
+            25,
+            50,
+            .94
+          )
+        );
+
+    }
+
+
+    .obs {
+
+      white-space:
+        normal;
+
+      overflow-wrap:
+        anywhere;
+
+    }
+
+
+    .empty {
+
+      height:
+        100%;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      text-align:
+        center;
+
+      color:
+        var(
+          --muted
+        );
+
+      font-size:
+        clamp(
+          24px,
+          2vw,
+          40px
+        );
+
+      font-weight:
+        900;
+
+    }
+
+
+    .attention {
+
+      height:
+        30px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      color:
+        var(
+          --muted
+        );
+
+      font-size:
+        14px;
+
+      font-weight:
+        900;
+
+    }
+
+
+    /* ==========================================================
+       RODAPÉ
+       ========================================================== */
+
+    #footer {
+
+      position:
+        fixed;
+
+      bottom:
+        0;
+
+      left:
+        0;
+
+      right:
+        0;
+
+      z-index:
+        500;
+
+      height:
+        42px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr auto 1fr;
+
+      align-items:
+        center;
+
+      padding:
+        0 28px;
+
+      color:
+        var(
+          --muted
+        );
+
+      background:
+        rgba(
+          2,
+          8,
+          15,
+          .92
+        );
+
+      border-top:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          .08
+        );
+
+    }
+
+
+    #screen-name {
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+
+    }
+
+
+    #timer {
+
+      text-align:
+        right;
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+
+    }
+
+
+    #dots {
+
+      display:
+        flex;
+
+      gap:
+        8px;
+
+    }
+
+
+    .dot {
+
+      width:
+        8px;
+
+      height:
+        8px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          .23
+        );
+
+    }
+
+
+    .dot.active {
+
+      width:
+        25px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(
+          --cyan
+        );
+
+      box-shadow:
+        0 0 12px
+        rgba(
+          16,
+          216,
+          232,
+          .5
+        );
+
+    }
+
+
+    /* ==========================================================
+       LOADING
+       ========================================================== */
+
+    #loading {
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      z-index:
+        2000;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      gap:
+        20px;
+
+      background:
+
+        radial-gradient(
+          circle,
+          #123b64,
+          #050b13 65%
+        );
+
+      transition:
+        opacity .5s ease;
+
+    }
+
+
+    #loading.hidden {
+
+      opacity:
+        0;
+
+      pointer-events:
+        none;
+
+    }
+
+
+    .spinner {
+
+      width:
+        65px;
+
+      height:
+        65px;
+
+      border:
+        6px solid
+        rgba(
+          255,
+          255,
+          255,
+          .12
+        );
+
+      border-top-color:
+        var(
+          --cyan
+        );
+
+      border-radius:
+        50%;
+
+      animation:
+        girar .9s linear infinite;
+
+    }
+
+
+    @keyframes girar {
+
+      to {
+
+        transform:
+          rotate(
+            360deg
+          );
+
+      }
+
+    }
+
+
+    .loading-title {
+
+      font-size:
+        28px;
+
+      font-weight:
+        950;
+
+    }
+
+
+    #error {
+
+      display:
+        none;
+
+      position:
+        fixed;
+
+      top:
+        12px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(
+          -50%
+        );
+
+      z-index:
+        3000;
+
+      padding:
+        11px 20px;
+
+      border-radius:
+        10px;
+
+      color:
+        #fff;
+
+      background:
+        rgba(
+          236,
+          42,
+          66,
+          .97
+        );
+
+      font-weight:
+        800;
+
+      box-shadow:
+        0 8px 25px
+        rgba(
+          0,
+          0,
+          0,
+          .3
+        );
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <div id="app"></div>
+
+
+  <div id="loading">
+
+    <div class="spinner"></div>
+
+    <div class="loading-title">
+      MUTERSIL
+    </div>
+
+    <div>
+      Carregando produção...
+    </div>
+
+  </div>
+
+
+  <div id="error"></div>
+
+
+  <footer id="footer">
+
+    <div id="screen-name">
+      Inicializando
+    </div>
+
+    <div id="dots"></div>
+
+    <div id="timer">
+      —
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /**
+     * ============================================================
+     * CONFIGURAÇÃO
+     * ============================================================
+     *
+     * DEPOIS QUE PUBLICAR O APPS SCRIPT,
+     * COLE A URL /exec ABAIXO.
+     */
+    const API_URL =
+      'https://script.google.com/macros/s/AKfycbzeZqe2NVkftxvOVrDFGRYTlxOhJuKzVVt59TyJxRxV2O-6fY4zxHuqHDz_FttbsQFUng/exec';
+
+
+    /**
+     * Logo informado.
+     */
+    const LOGO_URL =
+      'https://drive.google.com/thumbnail?id=1cVRA4xRIeOICfUG0FkOzuhwI2YVYOdII&sz=w500';
+
+
+    /**
+     * Troca de tela a cada 30 segundos.
+     */
+    const SCREEN_INTERVAL =
+      30000;
+
+
+    /**
+     * Consulta novos dados a cada 30 segundos.
+     */
+    const DATA_INTERVAL =
+      30000;
+
+
+    const SCREENS = [
+
+      {
+        id:
+          'producao-agora',
+
+        name:
+          'Produção Agora'
+      },
+
+      {
+        id:
+          'indicador-potes',
+
+        name:
+          'Indicador Potes'
+      },
+
+      {
+        id:
+          'ultimos-potes',
+
+        name:
+          'Últimos Apontamentos — Potes'
+      },
+
+      {
+        id:
+          'indicador-preforma',
+
+        name:
+          'Indicador Pré-formas'
+      },
+
+      {
+        id:
+          'ultimos-preforma',
+
+        name:
+          'Últimos Apontamentos — Pré-formas'
+      },
+
+      {
+        id:
+          'indicador-tampas',
+
+        name:
+          'Indicador Tampas'
+      },
+
+      {
+        id:
+          'ultimos-tampas',
+
+        name:
+          'Últimos Apontamentos — Tampas'
+      }
+
+    ];
+
+
+    let dados =
+      null;
+
+
+    let currentScreen =
+      0;
+
+
+    let nextChange =
+      Date.now() +
+      SCREEN_INTERVAL;
+
+
+    let requesting =
+      false;
+
+
+    /**
+     * ============================================================
+     * INÍCIO
+     * ============================================================
+     */
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+
+        criarDots();
+
+        carregarDados();
+
+
+        setInterval(
+          carregarDados,
+          DATA_INTERVAL
+        );
+
+
+        setInterval(
+          controlarRotacao,
+          1000
+        );
+
+      }
+    );
+
+
+    /**
+     * ============================================================
+     * JSONP
+     * ============================================================
+     *
+     * Utilizado para chamar Apps Script de um domínio externo
+     * sem depender de CORS.
+     */
+    function carregarDados() {
+
+      if (requesting) {
+
+        return;
+
+      }
+
+
+      if (
+        !API_URL ||
+        API_URL.indexOf(
+          'COLE_AQUI'
+        ) !== -1
+      ) {
+
+        mostrarErro(
+          'Configure a URL da API do Apps Script no index.html.'
+        );
+
+        return;
+
+      }
+
+
+      requesting =
+        true;
+
+
+      const callback =
+        'mutersilCallback_' +
+        Date.now() +
+        '_' +
+        Math.floor(
+          Math.random() *
+          100000
+        );
+
+
+      const script =
+        document.createElement(
+          'script'
+        );
+
+
+      const timeout =
+        setTimeout(
+          () => {
+
+            requesting =
+              false;
+
+
+            cleanup();
+
+
+            mostrarErro(
+              'Tempo limite na atualização. Os últimos dados continuam sendo exibidos.'
+            );
+
+          },
+          20000
+        );
+
+
+      function cleanup() {
+
+        clearTimeout(
+          timeout
+        );
+
+
+        try {
+
+          delete window[
+            callback
+          ];
+
+        } catch (e) {
+
+          window[
+            callback
+          ] =
+            undefined;
+
+        }
+
+
+        if (
+          script &&
+          script.parentNode
+        ) {
+
+          script.parentNode.removeChild(
+            script
+          );
+
+        }
+
+      }
+
+
+      window[
+        callback
+      ] =
+        function(
+          resposta
+        ) {
+
+          requesting =
+            false;
+
+
+          cleanup();
+
+
+          if (
+            !resposta ||
+            !resposta.sucesso
+          ) {
+
+            mostrarErro(
+              resposta &&
+              resposta.erro
+                ? resposta.erro
+                : 'Resposta inválida do servidor.'
+            );
+
+            return;
+
+          }
+
+
+          dados =
+            resposta;
+
+
+          esconderErro();
+
+
+          renderizar();
+
+
+          document
+            .getElementById(
+              'loading'
+            )
+            .classList
+            .add(
+              'hidden'
+            );
+
+        };
+
+
+      script.onerror =
+        function() {
+
+          requesting =
+            false;
+
+
+          cleanup();
+
+
+          mostrarErro(
+            'Não foi possível conectar à API. Mantendo os últimos dados.'
+          );
+
+        };
+
+
+      const separador =
+        API_URL.indexOf(
+          '?'
+        ) === -1
+          ? '?'
+          : '&';
+
+
+      script.src =
+        API_URL
+        +
+        separador
+        +
+        'callback='
+        +
+        encodeURIComponent(
+          callback
+        )
+        +
+        '&_='
+        +
+        Date.now();
+
+
+      document.head.appendChild(
+        script
+      );
+
+    }
+
+
+    /**
+     * ============================================================
+     * RENDER
+     * ============================================================
+     */
+    function renderizar() {
+
+      if (!dados) {
+
+        return;
+
+      }
+
+
+      document
+        .getElementById(
+          'app'
+        )
+        .innerHTML = [
+
+          telaProducaoAgora(),
+
+          telaIndicadorPotes(),
+
+          telaUltimosPotes(),
+
+          telaIndicadorPreforma(),
+
+          telaUltimosPreforma(),
+
+          telaIndicadorTampas(),
+
+          telaUltimosTampas()
+
+        ].join(
+          ''
+        );
+
+
+      mostrarTela(
+        currentScreen,
+        false
+      );
+
+    }
+
+
+    /**
+     * ============================================================
+     * HEADER
+     * ============================================================
+     */
+    function header(
+      titulo,
+      subtitulo
+    ) {
+
+      return `
+
+        <header class="header">
+
+          <div>
+
+            <img
+              class="logo"
+              src="${LOGO_URL}"
+              alt="Mutersil"
+            >
+
+          </div>
+
+
+          <div class="title-area">
+
+            <div class="title">
+              ${escapeHtml(
+                titulo
+              )}
+            </div>
+
+            <div class="subtitle">
+              ${escapeHtml(
+                subtitulo || ''
+              )}
+            </div>
+
+          </div>
+
+
+          <div class="header-right">
+
+            <div class="live">
+
+              <span class="live-dot"></span>
+
+              AO VIVO
+
+            </div>
+
+            <div class="updated">
+
+              Atualizado:
+              ${escapeHtml(
+                dados.atualizadoEm
+              )}
+
+            </div>
+
+          </div>
+
+        </header>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * PRODUÇÃO AGORA
+     * ============================================================
+     */
+    function telaProducaoAgora() {
+
+      return `
+
+        <section
+          id="producao-agora"
+          class="screen"
+        >
+
+          ${header(
+            'MUTERSIL — PRODUÇÃO AGORA',
+            'Indicadores do turno atual'
+          )}
+
+
+          <div class="card overview">
+
+            <table class="overview-table">
+
+              <thead>
+
+                <tr>
+
+                  <th
+                    style="
+                      width: 22%;
+                      text-align:left;
+                    "
+                  >
+                    Processo
+                  </th>
+
+                  <th>Produção</th>
+
+                  <th>Meta</th>
+
+                  <th>Eficiência</th>
+
+                  <th>Refugo</th>
+
+                  <th>Turno</th>
+
+                  <th>Status</th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+                ${
+                  dados.producaoAgora
+                    .map(
+                      linhaProducaoAgora
+                    )
+                    .join(
+                      ''
+                    )
+                }
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+
+
+    function linhaProducaoAgora(
+      item
+    ) {
+
+      const possuiDados =
+        item.producao !== null &&
+        item.producao !== undefined;
+
+
+      return `
+
+        <tr>
+
+          <td class="name">
+
+            ${escapeHtml(
+              item.nome
+            )}
+
+          </td>
+
+
+          <td>
+
+            <span class="production-value">
+
+              ${
+                possuiDados
+                  ? numero(
+                      item.producao,
+                      item.unidade ===
+                      'peças/h'
+                        ? 0
+                        : 1
+                    )
+                  : '—'
+              }
+
+            </span>
+
+            <span class="unit">
+
+              ${
+                escapeHtml(
+                  item.unidade
+                )
+              }
+
+            </span>
+
+          </td>
+
+
+          <td>
+
+            ${numero(
+              item.meta,
+              0
+            )}
+
+          </td>
+
+
+          <td
+            class="
+              ${
+                item.eficiencia === null
+                  ? ''
+                  :
+                  item.eficiencia >= 100
+                    ? 'good'
+                    : 'bad'
+              }
+            "
+          >
+
+            ${
+              item.eficiencia === null
+                ? '—'
+                :
+                numero(
+                  item.eficiencia,
+                  1
+                ) + '%'
+            }
+
+          </td>
+
+
+          <td
+            class="
+              ${
+                item.refugoPct === null
+                  ? ''
+                  :
+                  item.refugoPct <
+                  dados.metaRefugo
+                    ? 'good'
+                    : 'bad'
+              }
+            "
+          >
+
+            ${
+              item.refugoPct === null
+                ? '—'
+                :
+                numero(
+                  item.refugoPct,
+                  2
+                ) + '%'
+            }
+
+          </td>
+
+
+          <td>
+
+            ${escapeHtml(
+              item.turno
+            )}
+
+          </td>
+
+
+          <td>
+
+            ${statusPill(
+              item.status
+            )}
+
+          </td>
+
+        </tr>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * INDICADOR POTES
+     * ============================================================
+     */
+    function telaIndicadorPotes() {
+
+      const nomes = [
+
+        'JS 600',
+
+        'JS 2000',
+
+        'JS 2026'
+
+      ];
+
+
+      return `
+
+        <section
+          id="indicador-potes"
+          class="screen"
+        >
+
+          ${header(
+            'INDICADOR PRODUÇÃO POTES',
+            'Média de fardos por hora — hoje'
+          )}
+
+
+          <div class="machine-grid">
+
+            ${
+              nomes
+                .map(
+                  nome =>
+                    painelIndicador(
+                      nome,
+                      dados
+                        .potes
+                        .maquinas[
+                          nome
+                        ],
+                      'fardos/h'
+                    )
+                )
+                .join(
+                  ''
+                )
+            }
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * PAINEL INDICADOR
+     * ============================================================
+     */
+    function painelIndicador(
+      titulo,
+      indicador,
+      unidade
+    ) {
+
+      if (!indicador) {
+
+        return '';
+
+      }
+
+
+      return `
+
+        <div class="card machine">
+
+          <div class="machine-title">
+
+            ${escapeHtml(
+              titulo
+            )}
+
+          </div>
+
+
+          <div class="labels">
+
+            <div>Turno</div>
+
+            <div>Produção</div>
+
+            <div>Eficiência</div>
+
+            <div>Refugo</div>
+
+          </div>
+
+
+          ${
+            indicador
+              .turnos
+              .map(
+                turno =>
+                  linhaTurno(
+                    turno,
+                    unidade
+                  )
+              )
+              .join(
+                ''
+              )
+          }
+
+
+          <div class="machine-footer">
+
+            <span>
+
+              Meta:
+              ${numero(
+                indicador.meta,
+                0
+              )}
+              ${escapeHtml(
+                unidade
+              )}
+
+            </span>
+
+            <span>
+
+              Refugo:
+              &lt;
+              ${numero(
+                dados.metaRefugo,
+                1
+              )}%
+
+            </span>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    function linhaTurno(
+      turno,
+      unidade
+    ) {
+
+      const temDados =
+        turno.apontamentos > 0;
+
+
+      const eficiencia =
+        temDados
+          ? turno.eficiencia
+          : 0;
+
+
+      return `
+
+        <div class="turn">
+
+          <div class="turn-top">
+
+            <div class="turn-name">
+
+              ${escapeHtml(
+                turno.turno
+              )}
+
+            </div>
+
+
+            <div class="turn-value">
+
+              ${
+                temDados
+                  ? numero(
+                      turno.producao,
+                      unidade ===
+                      'peças/h'
+                        ? 0
+                        : 2
+                    )
+                  : '—'
+              }
+
+            </div>
+
+
+            <div
+              class="
+                turn-value
+                ${
+                  !temDados
+                    ? ''
+                    :
+                    turno.eficiencia >= 100
+                      ? 'good'
+                      : 'bad'
+                }
+              "
+            >
+
+              ${
+                temDados
+                  ? numero(
+                      turno.eficiencia,
+                      1
+                    ) + '%'
+                  : '—'
+              }
+
+            </div>
+
+
+            <div
+              class="
+                turn-value
+                ${
+                  !temDados
+                    ? ''
+                    :
+                    turno.refugoPct <
+                    dados.metaRefugo
+                      ? 'good'
+                      : 'bad'
+                }
+              "
+            >
+
+              ${
+                temDados
+                  ? numero(
+                      turno.refugoPct,
+                      2
+                    ) + '%'
+                  : '—'
+              }
+
+            </div>
+
+          </div>
+
+
+          <div class="progress">
+
+            <div
+              class="progress-fill"
+              style="
+                width:
+                ${
+                  Math.max(
+                    0,
+                    Math.min(
+                      100,
+                      eficiencia
+                    )
+                  )
+                }%;
+              "
+            ></div>
+
+            <div class="meta-line"></div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * ÚLTIMOS POTES
+     * ============================================================
+     */
+    function telaUltimosPotes() {
+
+      return `
+
+        <section
+          id="ultimos-potes"
+          class="screen"
+        >
+
+          ${header(
+            'ÚLTIMOS APONTAMENTOS: POTES',
+            'Registros das últimas 5 horas'
+          )}
+
+
+          <div class="card recent-card">
+
+            ${
+              tabelaPotes(
+                dados
+                  .potes
+                  .ultimos
+              )
+            }
+
+
+            <div class="attention">
+
+              ATENÇÃO AO APONTAMENTO •
+              CASO NECESSÁRIO CORREÇÃO,
+              PROCURAR A MARIANA
+
+            </div>
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+
+
+    function tabelaPotes(
+      registros
+    ) {
+
+      if (
+        !registros ||
+        registros.length === 0
+      ) {
+
+        return vazio(
+          'Nenhum apontamento nas últimas 5 horas'
+        );
+
+      }
+
+
+      return `
+
+        <div class="recent-wrap">
+
+          <table class="recent-table">
+
+            <colgroup>
+
+              <col style="width:7%">
+              <col style="width:8%">
+              <col style="width:9%">
+              <col style="width:10%">
+              <col style="width:9%">
+              <col style="width:7%">
+              <col style="width:7%">
+              <col style="width:10%">
+              <col style="width:33%">
+
+            </colgroup>
+
+
+            <thead>
+
+              <tr>
+
+                <th>Hora</th>
+                <th>Máq.</th>
+                <th>Turno</th>
+                <th>Líder</th>
+                <th>Pote</th>
+                <th>Fardos</th>
+                <th>Refugo</th>
+                <th>Tempo perdido</th>
+                <th>Observação</th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              ${
+                registros
+                  .map(
+                    r => `
+
+                      <tr
+                        class="
+                          ${
+                            r.alerta
+                              ? 'alert'
+                              : ''
+                          }
+                        "
+                      >
+
+                        <td>
+                          ${escapeHtml(r.hora)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(r.maquina)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(r.turno)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(r.lider)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(r.referencia)}
+                        </td>
+
+                        <td>
+                          <strong>
+                            ${numero(r.fardos, 0)}
+                          </strong>
+                        </td>
+
+                        <td>
+                          ${numero(r.refugo, 0)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(
+                            r.tempoPerdido ||
+                            '—'
+                          )}
+                        </td>
+
+                        <td class="obs">
+                          ${escapeHtml(
+                            r.observacao ||
+                            '—'
+                          )}
+                        </td>
+
+                      </tr>
+
+                    `
+                  )
+                  .join(
+                    ''
+                  )
+              }
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * INDICADOR PRÉ-FORMA
+     * ============================================================
+     */
+    function telaIndicadorPreforma() {
+
+      return `
+
+        <section
+          id="indicador-preforma"
+          class="screen"
+        >
+
+          ${header(
+            'INDICADOR PRODUÇÃO PRÉ-FORMAS',
+            'Média de peças por hora — hoje'
+          )}
+
+
+          <div class="machine-grid single">
+
+            <div class="card machine">
+
+              <div class="machine-title">
+
+                PRÉ-FORMAS
+
+              </div>
+
+
+              <div class="labels">
+
+                <div>Turno</div>
+                <div>Produção</div>
+                <div>Eficiência</div>
+                <div>Refugo</div>
+
+              </div>
+
+
+              ${
+                dados
+                  .preforma
+                  .turnos
+                  .map(
+                    turno =>
+                      linhaTurno(
+                        turno,
+                        'peças/h'
+                      )
+                  )
+                  .join(
+                    ''
+                  )
+              }
+
+
+              <div class="machine-footer">
+
+                <span>
+                  Meta: 1.200 peças/h
+                </span>
+
+                <span>
+                  Refugo:
+                  &lt;
+                  ${numero(
+                    dados.metaRefugo,
+                    1
+                  )}%
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * ÚLTIMOS PRÉ-FORMA
+     * ============================================================
+     */
+    function telaUltimosPreforma() {
+
+      const registros =
+        dados
+          .preforma
+          .ultimos;
+
+
+      return `
+
+        <section
+          id="ultimos-preforma"
+          class="screen"
+        >
+
+          ${header(
+            'ÚLTIMOS APONTAMENTOS: PRÉ-FORMAS',
+            'Registros das últimas 5 horas'
+          )}
+
+
+          <div class="card recent-card">
+
+            ${
+              registros.length === 0
+                ? vazio(
+                    'Nenhum apontamento nas últimas 5 horas'
+                  )
+                : `
+
+                  <div class="recent-wrap">
+
+                    <table class="recent-table">
+
+                      <colgroup>
+
+                        <col style="width:9%">
+                        <col style="width:12%">
+                        <col style="width:14%">
+                        <col style="width:11%">
+                        <col style="width:9%">
+                        <col style="width:13%">
+                        <col style="width:32%">
+
+                      </colgroup>
+
+
+                      <thead>
+
+                        <tr>
+
+                          <th>Hora</th>
+                          <th>Turno</th>
+                          <th>Líder</th>
+                          <th>Peças</th>
+                          <th>Refugo</th>
+                          <th>Tempo perdido</th>
+                          <th>Observação</th>
+
+                        </tr>
+
+                      </thead>
+
+
+                      <tbody>
+
+                        ${
+                          registros
+                            .map(
+                              r => `
+
+                                <tr
+                                  class="
+                                    ${
+                                      r.alerta
+                                        ? 'alert'
+                                        : ''
+                                    }
+                                  "
+                                >
+
+                                  <td>
+                                    ${escapeHtml(r.hora)}
+                                  </td>
+
+                                  <td>
+                                    ${escapeHtml(r.turno)}
+                                  </td>
+
+                                  <td>
+                                    ${escapeHtml(r.lider)}
+                                  </td>
+
+                                  <td>
+                                    <strong>
+                                      ${numero(r.pecas, 0)}
+                                    </strong>
+                                  </td>
+
+                                  <td>
+                                    ${numero(r.refugo, 0)}
+                                  </td>
+
+                                  <td>
+                                    ${escapeHtml(
+                                      r.tempoPerdido ||
+                                      '—'
+                                    )}
+                                  </td>
+
+                                  <td class="obs">
+                                    ${escapeHtml(
+                                      r.observacao ||
+                                      '—'
+                                    )}
+                                  </td>
+
+                                </tr>
+
+                              `
+                            )
+                            .join(
+                              ''
+                            )
+                        }
+
+                      </tbody>
+
+                    </table>
+
+                  </div>
+
+                `
+            }
+
+
+            <div class="attention">
+
+              ATENÇÃO AO APONTAMENTO •
+              CASO NECESSÁRIO CORREÇÃO,
+              PROCURAR A MARIANA
+
+            </div>
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * INDICADOR TAMPAS
+     * ============================================================
+     */
+    function telaIndicadorTampas() {
+
+      return `
+
+        <section
+          id="indicador-tampas"
+          class="screen"
+        >
+
+          ${header(
+            'INDICADOR PRODUÇÃO TAMPAS',
+            'Média de fardos por hora — hoje'
+          )}
+
+
+          <div class="machine-grid single">
+
+            <div class="card machine">
+
+              <div class="machine-title">
+
+                TAMPAS
+
+              </div>
+
+
+              <div class="labels">
+
+                <div>Turno</div>
+                <div>Produção</div>
+                <div>Eficiência</div>
+                <div>Refugo</div>
+
+              </div>
+
+
+              ${
+                dados
+                  .tampas
+                  .turnos
+                  .map(
+                    turno =>
+                      linhaTurno(
+                        turno,
+                        'fardos/h'
+                      )
+                  )
+                  .join(
+                    ''
+                  )
+              }
+
+
+              <div class="machine-footer">
+
+                <span>
+                  Meta: 4 fardos/h
+                </span>
+
+                <span>
+                  Refugo:
+                  &lt;
+                  ${numero(
+                    dados.metaRefugo,
+                    1
+                  )}%
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * ÚLTIMOS TAMPAS
+     * ============================================================
+     */
+    function telaUltimosTampas() {
+
+      const registros =
+        dados
+          .tampas
+          .ultimos;
+
+
+      return `
+
+        <section
+          id="ultimos-tampas"
+          class="screen"
+        >
+
+          ${header(
+            'ÚLTIMOS APONTAMENTOS: TAMPAS',
+            'Registros das últimas 5 horas'
+          )}
+
+
+          <div class="card recent-card">
+
+            ${
+              registros.length === 0
+                ? vazio(
+                    'Nenhum apontamento nas últimas 5 horas'
+                  )
+                : `
+
+                  <div class="recent-wrap">
+
+                    <table class="recent-table">
+
+                      <colgroup>
+
+                        <col style="width:9%">
+                        <col style="width:11%">
+                        <col style="width:14%">
+                        <col style="width:10%">
+                        <col style="width:9%">
+                        <col style="width:9%">
+                        <col style="width:13%">
+                        <col style="width:25%">
+
+                      </colgroup>
+
+
+                      <thead>
+
+                        <tr>
+
+                          <th>Hora</th>
+                          <th>Turno</th>
+                          <th>Líder</th>
+                          <th>Cor</th>
+                          <th>Fardos</th>
+                          <th>Refugo</th>
+                          <th>Tempo perdido</th>
+                          <th>Observação</th>
+
+                        </tr>
+
+                      </thead>
+
+
+                      <tbody>
+
+                        ${
+                          registros
+                            .map(
+                              r => `
+
+                                <tr
+                                  class="
+                                    ${
+                                      r.alerta
+                                        ? 'alert'
+                                        : ''
+                                    }
+                                  "
+                                >
+
+                                  <td>
+                                    ${escapeHtml(r.hora)}
+                                  </td>
+
+                                  <td>
+                                    ${escapeHtml(r.turno)}
+                                  </td>
+
+                                  <td>
+                                    ${escapeHtml(r.lider)}
+                                  </td>
+
+                                  <td>
+                                    ${escapeHtml(r.cor)}
+                                  </td>
+
+                                  <td>
+                                    <strong>
+                                      ${numero(r.fardos, 0)}
+                                    </strong>
+                                  </td>
+
+                                  <td>
+                                    ${numero(r.refugo, 0)}
+                                  </td>
+
+                                  <td>
+                                    ${escapeHtml(
+                                      r.tempoPerdido ||
+                                      '—'
+                                    )}
+                                  </td>
+
+                                  <td class="obs">
+                                    ${escapeHtml(
+                                      r.observacao ||
+                                      '—'
+                                    )}
+                                  </td>
+
+                                </tr>
+
+                              `
+                            )
+                            .join(
+                              ''
+                            )
+                        }
+
+                      </tbody>
+
+                    </table>
+
+                  </div>
+
+                `
+            }
+
+
+            <div class="attention">
+
+              ATENÇÃO AO APONTAMENTO •
+              CASO NECESSÁRIO CORREÇÃO,
+              EDITAR NO APLICATIVO
+
+            </div>
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * ROTAÇÃO
+     * ============================================================
+     */
+    function controlarRotacao() {
+
+      if (!dados) {
+
+        return;
+
+      }
+
+
+      const faltam =
+        Math.max(
+          0,
+          Math.ceil(
+            (
+              nextChange -
+              Date.now()
+            ) /
+            1000
+          )
+        );
+
+
+      document
+        .getElementById(
+          'timer'
+        )
+        .textContent =
+          'Próxima tela em ' +
+          faltam +
+          's';
+
+
+      if (
+        Date.now() >=
+        nextChange
+      ) {
+
+        mostrarTela(
+          currentScreen + 1
+        );
+
+      }
+
+    }
+
+
+    function mostrarTela(
+      indice,
+      resetTimer = true
+    ) {
+
+      currentScreen =
+        (
+          indice +
+          SCREENS.length
+        ) %
+        SCREENS.length;
+
+
+      document
+        .querySelectorAll(
+          '.screen'
+        )
+        .forEach(
+          tela => {
+
+            tela.classList.remove(
+              'active'
+            );
+
+          }
+        );
+
+
+      const tela =
+        document.getElementById(
+          SCREENS[
+            currentScreen
+          ].id
+        );
+
+
+      if (tela) {
+
+        tela.classList.add(
+          'active'
+        );
+
+      }
+
+
+      document
+        .getElementById(
+          'screen-name'
+        )
+        .textContent =
+          SCREENS[
+            currentScreen
+          ].name;
+
+
+      atualizarDots();
+
+
+      if (
+        resetTimer
+      ) {
+
+        nextChange =
+          Date.now() +
+          SCREEN_INTERVAL;
+
+      }
+
+    }
+
+
+    /**
+     * ============================================================
+     * DOTS
+     * ============================================================
+     */
+    function criarDots() {
+
+      document
+        .getElementById(
+          'dots'
+        )
+        .innerHTML =
+          SCREENS
+            .map(
+              (
+                _,
+                index
+              ) =>
+                `
+
+                  <span
+                    class="dot"
+                    data-index="${index}"
+                  ></span>
+
+                `
+            )
+            .join(
+              ''
+            );
+
+    }
+
+
+    function atualizarDots() {
+
+      document
+        .querySelectorAll(
+          '.dot'
+        )
+        .forEach(
+          (
+            dot,
+            index
+          ) => {
+
+            dot
+              .classList
+              .toggle(
+                'active',
+                index ===
+                currentScreen
+              );
+
+          }
+        );
+
+    }
+
+
+    /**
+     * ============================================================
+     * STATUS
+     * ============================================================
+     */
+    function statusPill(
+      status
+    ) {
+
+      if (
+        status === 'OK'
+      ) {
+
+        return `
+
+          <span class="
+            status-pill
+            status-ok
+          ">
+            ● OK
+          </span>
+
+        `;
+
+      }
+
+
+      if (
+        status === 'ALERTA'
+      ) {
+
+        return `
+
+          <span class="
+            status-pill
+            status-alert
+          ">
+            ● ALERTA
+          </span>
+
+        `;
+
+      }
+
+
+      return `
+
+        <span class="
+          status-pill
+          status-none
+        ">
+          SEM DADOS
+        </span>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * VAZIO
+     * ============================================================
+     */
+    function vazio(
+      mensagem
+    ) {
+
+      return `
+
+        <div class="empty">
+
+          ${escapeHtml(
+            mensagem
+          )}
+
+        </div>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
+     * FORMATAÇÃO
+     * ============================================================
+     */
+    function numero(
+      valor,
+      casas
+    ) {
+
+      if (
+        valor === null ||
+        valor === undefined ||
+        valor === ''
+      ) {
+
+        return '—';
+
+      }
+
+
+      const n =
+        Number(
+          valor
+        );
+
+
+      if (
+        Number.isNaN(
+          n
+        )
+      ) {
+
+        return '—';
+
+      }
+
+
+      return n.toLocaleString(
+        'pt-BR',
+        {
+
+          minimumFractionDigits:
+            casas,
+
+          maximumFractionDigits:
+            casas
+
+        }
+      );
+
+    }
+
+
+    function escapeHtml(
+      valor
+    ) {
+
+      const div =
+        document.createElement(
+          'div'
+        );
+
+
+      div.textContent =
+        valor === null ||
+        valor === undefined
+          ? ''
+          : String(
+              valor
+            );
+
+
+      return div.innerHTML;
+
+    }
+
+
+    /**
+     * ============================================================
+     * ERRO
+     * ============================================================
+     */
+    function mostrarErro(
+      mensagem
+    ) {
+
+      const box =
+        document.getElementById(
+          'error'
+        );
+
+
+      box.textContent =
+        mensagem;
+
+
+      box.style.display =
+        'block';
+
+    }
+
+
+    function esconderErro() {
+
+      document
+        .getElementById(
+          'error'
+        )
+        .style.display =
+          'none';
+
+    }
+
+  </script>
+
+</body>
+
+</html>
