@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
@@ -18,78 +17,41 @@
 
     :root {
 
-      --bg:
-        #06101c;
+      --bg: #06101c;
+      --bg2: #0c1d31;
+      --card: #10253c;
+      --card2: #0b1b2d;
 
-      --bg2:
-        #0c1d31;
+      --text: #f1f7fd;
+      --muted: #9fb3c8;
 
-      --card:
-        #10253c;
-
-      --card2:
-        #0b1b2d;
+      --blue: #1498ff;
+      --cyan: #10d8e8;
+      --green: #24d68f;
+      --yellow: #ffd052;
+      --orange: #ff9f43;
+      --red: #ff4357;
 
       --border:
-        rgba(
-          255,
-          255,
-          255,
-          .10
-        );
-
-      --white:
-        #ffffff;
-
-      --text:
-        #f1f7fd;
-
-      --muted:
-        #9fb3c8;
-
-      --blue:
-        #1498ff;
-
-      --cyan:
-        #10d8e8;
-
-      --green:
-        #24d68f;
-
-      --yellow:
-        #ffd052;
-
-      --red:
-        #ff4357;
-
-      --red2:
-        #c91e38;
+        rgba(255,255,255,.10);
 
     }
 
 
     * {
-
-      box-sizing:
-        border-box;
-
+      box-sizing: border-box;
     }
 
 
     html,
     body {
 
-      width:
-        100%;
+      width: 100%;
+      height: 100%;
 
-      height:
-        100%;
+      margin: 0;
 
-      margin:
-        0;
-
-      overflow:
-        hidden;
+      overflow: hidden;
 
     }
 
@@ -102,9 +64,7 @@
         sans-serif;
 
       color:
-        var(
-          --text
-        );
+        var(--text);
 
       background:
 
@@ -120,52 +80,40 @@
 
     #app {
 
-      position:
-        relative;
+      position: relative;
 
-      width:
-        100vw;
+      width: 100vw;
+      height: 100vh;
 
-      height:
-        100vh;
-
-      overflow:
-        hidden;
+      overflow: hidden;
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
        TELAS
-       ========================================================== */
+       ============================================================ */
 
     .screen {
 
-      position:
-        absolute;
+      position: absolute;
 
-      inset:
-        0;
+      inset: 0;
 
-      width:
-        100%;
-
-      height:
-        100%;
+      width: 100%;
+      height: 100%;
 
       padding:
-        20px 32px 55px;
+        20px
+        32px
+        55px;
 
-      opacity:
-        0;
+      opacity: 0;
 
-      pointer-events:
-        none;
+      pointer-events: none;
 
       transform:
-        translateX(
-          35px
-        );
+        translateX(35px);
 
       transition:
         opacity .45s ease,
@@ -176,65 +124,58 @@
 
     .screen.active {
 
-      opacity:
-        1;
+      opacity: 1;
 
-      pointer-events:
-        auto;
+      pointer-events: auto;
 
       transform:
-        translateX(
-          0
-        );
+        translateX(0);
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
        HEADER
-       ========================================================== */
+       ============================================================ */
 
     .header {
 
-      height:
-        100px;
+      height: 100px;
 
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
-        180px 1fr 250px;
+        180px
+        1fr
+        270px;
 
-      gap:
-        16px;
+      gap: 16px;
 
-      align-items:
-        center;
+      align-items: center;
 
-      margin-bottom:
-        15px;
+      margin-bottom: 15px;
 
     }
 
 
     .logo {
 
-      max-width:
-        165px;
+      max-width: 165px;
 
-      max-height:
-        85px;
+      max-height: 85px;
 
-      object-fit:
-        contain;
+      object-fit: contain;
+
+      background: white;
+
+      padding: 4px;
 
     }
 
 
     .title-area {
 
-      text-align:
-        center;
+      text-align: center;
 
     }
 
@@ -248,27 +189,21 @@
           52px
         );
 
-      font-weight:
-        900;
+      font-weight: 900;
 
-      letter-spacing:
-        .4px;
+      letter-spacing: .4px;
 
-      line-height:
-        1;
+      line-height: 1;
 
     }
 
 
     .subtitle {
 
-      margin-top:
-        9px;
+      margin-top: 9px;
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
       font-size:
         clamp(
@@ -277,100 +212,108 @@
           21px
         );
 
-      font-weight:
-        700;
+      font-weight: 700;
 
     }
 
 
     .header-right {
 
-      display:
-        flex;
+      display: flex;
 
-      flex-direction:
-        column;
+      flex-direction: column;
 
-      align-items:
-        flex-end;
+      align-items: flex-end;
 
-      gap:
-        7px;
+      gap: 7px;
 
     }
 
 
-    .live {
+    .connection {
 
-      display:
-        flex;
+      display: flex;
 
-      align-items:
-        center;
+      align-items: center;
 
-      gap:
-        8px;
+      gap: 8px;
+
+      font-size: 16px;
+
+      font-weight: 900;
+
+    }
+
+
+    .connection-dot {
+
+      width: 11px;
+      height: 11px;
+
+      border-radius: 50%;
+
+    }
+
+
+    .connection.online {
 
       color:
-        var(
-          --green
-        );
-
-      font-size:
-        16px;
-
-      font-weight:
-        900;
+        var(--green);
 
     }
 
 
-    .live-dot {
-
-      width:
-        11px;
-
-      height:
-        11px;
-
-      border-radius:
-        50%;
+    .connection.online
+    .connection-dot {
 
       background:
-        var(
-          --green
-        );
+        var(--green);
 
       box-shadow:
         0 0 14px
-        var(
-          --green
-        );
-
-      animation:
-        piscar
-        1.4s
-        infinite;
+        var(--green);
 
     }
 
 
-    @keyframes piscar {
+    .connection.reconnecting {
 
-      0%,
-      100% {
+      color:
+        var(--yellow);
 
-        opacity:
-          1;
+    }
 
-      }
 
-      50% {
+    .connection.reconnecting
+    .connection-dot {
 
-        opacity:
-          .25;
+      background:
+        var(--yellow);
 
-      }
+      box-shadow:
+        0 0 14px
+        var(--yellow);
+
+    }
+
+
+    .connection.offline {
+
+      color:
+        var(--red);
+
+    }
+
+
+    .connection.offline
+    .connection-dot {
+
+      background:
+        var(--red);
+
+      box-shadow:
+        0 0 14px
+        var(--red);
 
     }
 
@@ -378,22 +321,73 @@
     .updated {
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      font-weight:
-        700;
+      font-weight: 700;
+
+      text-align: right;
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
+       AVISOS
+       ============================================================ */
+
+    #notice {
+
+      display: none;
+
+      position: fixed;
+
+      top: 10px;
+
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      z-index: 5000;
+
+      max-width: 780px;
+
+      padding:
+        10px
+        20px;
+
+      border-radius: 12px;
+
+      color: #111;
+
+      background:
+        var(--yellow);
+
+      font-size: 15px;
+
+      font-weight: 900;
+
+      box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.35);
+
+    }
+
+
+    #notice.error {
+
+      color: white;
+
+      background:
+        var(--red);
+
+    }
+
+
+    /* ============================================================
        CARDS
-       ========================================================== */
+       ============================================================ */
 
     .card {
 
@@ -401,45 +395,26 @@
 
         linear-gradient(
           145deg,
-          rgba(
-            20,
-            43,
-            70,
-            .96
-          ),
-          rgba(
-            8,
-            22,
-            38,
-            .97
-          )
+          rgba(20,43,70,.96),
+          rgba(8,22,38,.97)
         );
 
       border:
         1px solid
-        var(
-          --border
-        );
+        var(--border);
 
-      border-radius:
-        18px;
+      border-radius: 18px;
 
       box-shadow:
-
         0 15px 45px
-        rgba(
-          0,
-          0,
-          0,
-          .28
-        );
+        rgba(0,0,0,.28);
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
        PRODUÇÃO AGORA
-       ========================================================== */
+       ============================================================ */
 
     .overview {
 
@@ -450,24 +425,20 @@
         );
 
       padding:
-        15px 18px;
+        15px
+        18px;
 
     }
 
 
     .overview-table {
 
-      width:
-        100%;
+      width: 100%;
+      height: 100%;
 
-      height:
-        100%;
+      border-collapse: collapse;
 
-      border-collapse:
-        collapse;
-
-      table-layout:
-        fixed;
+      table-layout: fixed;
 
     }
 
@@ -475,9 +446,7 @@
     .overview-table th {
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
       font-size:
         clamp(
@@ -486,23 +455,15 @@
           19px
         );
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
-      padding:
-        10px;
+      padding: 10px;
 
-      text-align:
-        center;
+      text-align: center;
 
       border-bottom:
         2px solid
-        rgba(
-          255,
-          255,
-          255,
-          .09
-        );
+        rgba(255,255,255,.09);
 
     }
 
@@ -510,19 +471,14 @@
     .overview-table td {
 
       padding:
-        11px 12px;
+        11px
+        12px;
 
-      text-align:
-        center;
+      text-align: center;
 
       border-bottom:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          .07
-        );
+        rgba(255,255,255,.07);
 
       font-size:
         clamp(
@@ -531,16 +487,14 @@
           29px
         );
 
-      font-weight:
-        800;
+      font-weight: 800;
 
     }
 
 
     .overview-table .name {
 
-      text-align:
-        left;
+      text-align: left;
 
       font-size:
         clamp(
@@ -549,104 +503,82 @@
           32px
         );
 
-      font-weight:
-        900;
+      font-weight: 900;
 
     }
 
 
     .production-value {
 
-      font-size:
-        1.35em;
+      font-size: 1.35em;
 
-      font-weight:
-        950;
+      font-weight: 950;
 
     }
 
 
     .unit {
 
-      display:
-        block;
+      display: block;
 
-      margin-top:
-        3px;
+      margin-top: 3px;
 
-      font-size:
-        11px;
+      font-size: 11px;
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
     }
 
 
     .status-pill {
 
-      display:
-        inline-flex;
+      display: inline-flex;
 
-      min-width:
-        130px;
+      min-width: 130px;
 
-      justify-content:
-        center;
+      justify-content: center;
 
-      align-items:
-        center;
+      align-items: center;
 
       padding:
-        9px 14px;
+        9px
+        14px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      font-size:
-        16px;
+      font-size: 16px;
 
-      font-weight:
-        900;
+      font-weight: 900;
 
     }
 
 
     .status-ok {
 
-      color:
-        #06170f;
+      color: #06170f;
 
       background:
-        var(
-          --green
-        );
+        var(--green);
 
     }
 
 
     .status-alert {
 
-      color:
-        #fff;
+      color: white;
 
       background:
-        var(
-          --red
-        );
+        var(--red);
 
     }
 
 
     .status-none {
 
-      color:
-        #d7e0e9;
+      color: #d7e0e9;
 
-      background:
-        #52647a;
+      background: #52647a;
 
     }
 
@@ -654,9 +586,7 @@
     .good {
 
       color:
-        var(
-          --green
-        );
+        var(--green);
 
     }
 
@@ -664,16 +594,14 @@
     .bad {
 
       color:
-        var(
-          --red
-        );
+        var(--red);
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
        INDICADORES
-       ========================================================== */
+       ============================================================ */
 
     .machine-grid {
 
@@ -683,28 +611,22 @@
           180px
         );
 
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
         repeat(
           3,
-          minmax(
-            0,
-            1fr
-          )
+          minmax(0,1fr)
         );
 
-      gap:
-        15px;
+      gap: 15px;
 
     }
 
 
     .machine-grid.single {
 
-      grid-template-columns:
-        1fr;
+      grid-template-columns: 1fr;
 
     }
 
@@ -712,18 +634,17 @@
     .machine {
 
       padding:
-        19px 20px;
+        19px
+        20px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
     }
 
 
     .machine-title {
 
-      text-align:
-        center;
+      text-align: center;
 
       font-size:
         clamp(
@@ -732,11 +653,50 @@
           37px
         );
 
-      font-weight:
-        950;
+      font-weight: 950;
 
-      margin-bottom:
-        17px;
+      margin-bottom: 17px;
+
+    }
+
+
+    .labels,
+    .turn-top {
+
+      display: grid;
+
+      grid-template-columns:
+        1.2fr
+        1fr
+        1fr
+        1fr;
+
+      gap: 9px;
+
+      align-items: center;
+
+    }
+
+
+    .labels {
+
+      color:
+        var(--muted);
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      margin-bottom: 3px;
+
+    }
+
+
+    .labels div:not(:first-child) {
+
+      text-align: center;
 
     }
 
@@ -748,29 +708,7 @@
 
       border-top:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          .08
-        );
-
-    }
-
-
-    .turn-top {
-
-      display:
-        grid;
-
-      grid-template-columns:
-        1.2fr 1fr 1fr 1fr;
-
-      gap:
-        9px;
-
-      align-items:
-        center;
+        rgba(255,255,255,.08);
 
     }
 
@@ -784,16 +722,14 @@
           23px
         );
 
-      font-weight:
-        900;
+      font-weight: 900;
 
     }
 
 
     .turn-value {
 
-      text-align:
-        center;
+      text-align: center;
 
       font-size:
         clamp(
@@ -802,102 +738,40 @@
           23px
         );
 
-      font-weight:
-        900;
-
-    }
-
-
-    .labels {
-
-      display:
-        grid;
-
-      grid-template-columns:
-        1.2fr 1fr 1fr 1fr;
-
-      gap:
-        9px;
-
-      color:
-        var(
-          --muted
-        );
-
-      font-size:
-        11px;
-
-      font-weight:
-        900;
-
-      text-transform:
-        uppercase;
-
-      margin-bottom:
-        3px;
-
-    }
-
-
-    .labels div:not(
-      :first-child
-    ) {
-
-      text-align:
-        center;
+      font-weight: 900;
 
     }
 
 
     .progress {
 
-      margin-top:
-        9px;
+      margin-top: 9px;
 
-      width:
-        100%;
-
-      height:
-        13px;
+      width: 100%;
+      height: 13px;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          .08
-        );
+        rgba(255,255,255,.08);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      overflow:
-        hidden;
-
-      position:
-        relative;
+      overflow: hidden;
 
     }
 
 
     .progress-fill {
 
-      height:
-        100%;
+      height: 100%;
 
-      border-radius:
-        inherit;
+      border-radius: inherit;
 
       background:
 
         linear-gradient(
           90deg,
-          var(
-            --blue
-          ),
-          var(
-            --cyan
-          )
+          var(--blue),
+          var(--cyan)
         );
 
       transition:
@@ -906,74 +780,34 @@
     }
 
 
-    .meta-line {
-
-      position:
-        absolute;
-
-      top:
-        0;
-
-      bottom:
-        0;
-
-      right:
-        0;
-
-      width:
-        3px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          .6
-        );
-
-    }
-
-
     .machine-footer {
 
-      display:
-        flex;
+      display: flex;
 
       justify-content:
         space-between;
 
-      margin-top:
-        18px;
+      margin-top: 18px;
 
-      padding-top:
-        12px;
+      padding-top: 12px;
 
       border-top:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          .08
-        );
+        rgba(255,255,255,.08);
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
        ÚLTIMOS APONTAMENTOS
-       ========================================================== */
+       ============================================================ */
 
     .recent-card {
 
@@ -984,7 +818,9 @@
         );
 
       padding:
-        8px 14px 12px;
+        8px
+        14px
+        12px;
 
     }
 
@@ -997,41 +833,33 @@
           34px
         );
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
     }
 
 
     .recent-table {
 
-      width:
-        100%;
+      width: 100%;
 
-      border-collapse:
-        separate;
+      border-collapse: separate;
 
       border-spacing:
         0 5px;
 
-      table-layout:
-        fixed;
+      table-layout: fixed;
 
     }
 
 
     .recent-table th {
 
-      padding:
-        7px;
+      padding: 7px;
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
       font-size:
         clamp(
@@ -1040,8 +868,7 @@
           16px
         );
 
-      text-align:
-        left;
+      text-align: left;
 
     }
 
@@ -1049,33 +876,19 @@
     .recent-table td {
 
       padding:
-        8px 7px;
+        8px
+        7px;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          .045
-        );
+        rgba(255,255,255,.045);
 
       border-top:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          .055
-        );
+        rgba(255,255,255,.055);
 
       border-bottom:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          .055
-        );
+        rgba(255,255,255,.055);
 
       font-size:
         clamp(
@@ -1084,52 +897,23 @@
           19px
         );
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      line-height:
-        1.13;
-
-    }
-
-
-    .recent-table td:first-child {
-
-      border-radius:
-        9px 0 0 9px;
-
-    }
-
-
-    .recent-table td:last-child {
-
-      border-radius:
-        0 9px 9px 0;
+      line-height: 1.13;
 
     }
 
 
     .recent-table tr.alert td {
 
-      color:
-        #ffffff;
+      color: white;
 
       background:
 
         linear-gradient(
           90deg,
-          rgba(
-            236,
-            42,
-            66,
-            .94
-          ),
-          rgba(
-            189,
-            25,
-            50,
-            .94
-          )
+          rgba(236,42,66,.94),
+          rgba(189,25,50,.94)
         );
 
     }
@@ -1137,33 +921,25 @@
 
     .obs {
 
-      white-space:
-        normal;
+      white-space: normal;
 
-      overflow-wrap:
-        anywhere;
+      overflow-wrap: anywhere;
 
     }
 
 
     .empty {
 
-      height:
-        100%;
+      height: 100%;
 
-      display:
-        grid;
+      display: grid;
 
-      place-items:
-        center;
+      place-items: center;
 
-      text-align:
-        center;
+      text-align: center;
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
       font-size:
         clamp(
@@ -1172,213 +948,151 @@
           40px
         );
 
-      font-weight:
-        900;
+      font-weight: 900;
 
     }
 
 
     .attention {
 
-      height:
-        30px;
+      height: 30px;
 
-      display:
-        flex;
+      display: flex;
 
-      align-items:
-        center;
+      align-items: center;
 
-      justify-content:
-        center;
+      justify-content: center;
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      font-weight:
-        900;
+      font-weight: 900;
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
        RODAPÉ
-       ========================================================== */
+       ============================================================ */
 
     #footer {
 
-      position:
-        fixed;
+      position: fixed;
 
-      bottom:
-        0;
+      bottom: 0;
+      left: 0;
+      right: 0;
 
-      left:
-        0;
+      z-index: 500;
 
-      right:
-        0;
+      height: 42px;
 
-      z-index:
-        500;
-
-      height:
-        42px;
-
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
-        1fr auto 1fr;
+        1fr
+        auto
+        1fr;
 
-      align-items:
-        center;
+      align-items: center;
 
       padding:
         0 28px;
 
       color:
-        var(
-          --muted
-        );
+        var(--muted);
 
       background:
-        rgba(
-          2,
-          8,
-          15,
-          .92
-        );
+        rgba(2,8,15,.92);
 
       border-top:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          .08
-        );
-
-    }
-
-
-    #screen-name {
-
-      font-size:
-        13px;
-
-      font-weight:
-        800;
+        rgba(255,255,255,.08);
 
     }
 
 
     #timer {
 
-      text-align:
-        right;
+      text-align: right;
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      font-weight:
-        800;
+      font-weight: 800;
+
+    }
+
+
+    #screen-name {
+
+      font-size: 13px;
+
+      font-weight: 800;
 
     }
 
 
     #dots {
 
-      display:
-        flex;
+      display: flex;
 
-      gap:
-        8px;
+      gap: 8px;
 
     }
 
 
     .dot {
 
-      width:
-        8px;
+      width: 8px;
+      height: 8px;
 
-      height:
-        8px;
-
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          .23
-        );
+        rgba(255,255,255,.23);
 
     }
 
 
     .dot.active {
 
-      width:
-        25px;
+      width: 25px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
-        var(
-          --cyan
-        );
+        var(--cyan);
 
       box-shadow:
         0 0 12px
-        rgba(
-          16,
-          216,
-          232,
-          .5
-        );
+        rgba(16,216,232,.5);
 
     }
 
 
-    /* ==========================================================
+    /* ============================================================
        LOADING
-       ========================================================== */
+       ============================================================ */
 
     #loading {
 
-      position:
-        fixed;
+      position: fixed;
 
-      inset:
-        0;
+      inset: 0;
 
-      z-index:
-        2000;
+      z-index: 2000;
 
-      display:
-        flex;
+      display: flex;
 
-      flex-direction:
-        column;
+      flex-direction: column;
 
-      justify-content:
-        center;
+      justify-content: center;
 
-      align-items:
-        center;
+      align-items: center;
 
-      gap:
-        20px;
+      gap: 20px;
 
       background:
 
@@ -1396,42 +1110,32 @@
 
     #loading.hidden {
 
-      opacity:
-        0;
+      opacity: 0;
 
-      pointer-events:
-        none;
+      pointer-events: none;
 
     }
 
 
     .spinner {
 
-      width:
-        65px;
-
-      height:
-        65px;
+      width: 65px;
+      height: 65px;
 
       border:
         6px solid
-        rgba(
-          255,
-          255,
-          255,
-          .12
-        );
+        rgba(255,255,255,.12);
 
       border-top-color:
-        var(
-          --cyan
-        );
+        var(--cyan);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       animation:
-        girar .9s linear infinite;
+        girar
+        .9s
+        linear
+        infinite;
 
     }
 
@@ -1441,76 +1145,9 @@
       to {
 
         transform:
-          rotate(
-            360deg
-          );
+          rotate(360deg);
 
       }
-
-    }
-
-
-    .loading-title {
-
-      font-size:
-        28px;
-
-      font-weight:
-        950;
-
-    }
-
-
-    #error {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      top:
-        12px;
-
-      left:
-        50%;
-
-      transform:
-        translateX(
-          -50%
-        );
-
-      z-index:
-        3000;
-
-      padding:
-        11px 20px;
-
-      border-radius:
-        10px;
-
-      color:
-        #fff;
-
-      background:
-        rgba(
-          236,
-          42,
-          66,
-          .97
-        );
-
-      font-weight:
-        800;
-
-      box-shadow:
-        0 8px 25px
-        rgba(
-          0,
-          0,
-          0,
-          .3
-        );
 
     }
 
@@ -1525,11 +1162,19 @@
   <div id="app"></div>
 
 
+  <div id="notice"></div>
+
+
   <div id="loading">
 
     <div class="spinner"></div>
 
-    <div class="loading-title">
+    <div
+      style="
+        font-size:28px;
+        font-weight:950;
+      "
+    >
       MUTERSIL
     </div>
 
@@ -1538,9 +1183,6 @@
     </div>
 
   </div>
-
-
-  <div id="error"></div>
 
 
   <footer id="footer">
@@ -1562,151 +1204,312 @@
 
     /**
      * ============================================================
-     * CONFIGURAÇÃO
+     * API ATUAL
      * ============================================================
-     *
-     * DEPOIS QUE PUBLICAR O APPS SCRIPT,
-     * COLE A URL /exec ABAIXO.
      */
     const API_URL =
-      'https://script.google.com/macros/s/AKfycbzeZqe2NVkftxvOVrDFGRYTlxOhJuKzVVt59TyJxRxV2O-6fY4zxHuqHDz_FttbsQFUng/exec';
+      'https://script.google.com/macros/s/AKfycbwQsxtfo8nzeilz46EMpbUnRItak3EMFGx72_NDpo3m5BmTXoRxA17EEU3bCRrdqF8k_g/exec';
 
 
-    /**
-     * Logo informado.
-     */
     const LOGO_URL =
       'https://drive.google.com/thumbnail?id=1cVRA4xRIeOICfUG0FkOzuhwI2YVYOdII&sz=w500';
 
 
     /**
-     * Troca de tela a cada 30 segundos.
+     * Troca visual:
+     * 30 segundos.
      */
     const SCREEN_INTERVAL =
       30000;
 
 
     /**
-     * Consulta novos dados a cada 30 segundos.
+     * CORRIGIDO:
+     *
+     * Atualização de dados:
+     * 60 segundos.
      */
     const DATA_INTERVAL =
-      30000;
+      60000;
+
+
+    /**
+     * Tempo máximo de cada tentativa.
+     */
+    const REQUEST_TIMEOUT =
+      25000;
+
+
+    /**
+     * Repetições após falha.
+     */
+    const RETRY_DELAYS = [
+
+      3000,
+
+      8000,
+
+      15000
+
+    ];
+
+
+    /**
+     * Só consideramos realmente offline
+     * após 5 minutos sem atualização válida.
+     */
+    const OFFLINE_AFTER =
+      5 *
+      60 *
+      1000;
+
+
+    const STORAGE_KEY =
+      'MUTERSIL_DASHBOARD_LAST_GOOD_V3';
 
 
     const SCREENS = [
 
       {
-        id:
-          'producao-agora',
-
-        name:
-          'Produção Agora'
+        id: 'producao-agora',
+        name: 'Produção Agora'
       },
 
       {
-        id:
-          'indicador-potes',
-
-        name:
-          'Indicador Potes'
+        id: 'indicador-potes',
+        name: 'Indicador Potes'
       },
 
       {
-        id:
-          'ultimos-potes',
-
-        name:
-          'Últimos Apontamentos — Potes'
+        id: 'ultimos-potes',
+        name: 'Últimos Apontamentos — Potes'
       },
 
       {
-        id:
-          'indicador-preforma',
-
-        name:
-          'Indicador Pré-formas'
+        id: 'indicador-preforma',
+        name: 'Indicador Pré-formas'
       },
 
       {
-        id:
-          'ultimos-preforma',
-
-        name:
-          'Últimos Apontamentos — Pré-formas'
+        id: 'ultimos-preforma',
+        name: 'Últimos Apontamentos — Pré-formas'
       },
 
       {
-        id:
-          'indicador-tampas',
-
-        name:
-          'Indicador Tampas'
+        id: 'indicador-tampas',
+        name: 'Indicador Tampas'
       },
 
       {
-        id:
-          'ultimos-tampas',
-
-        name:
-          'Últimos Apontamentos — Tampas'
+        id: 'ultimos-tampas',
+        name: 'Últimos Apontamentos — Tampas'
       }
 
     ];
 
 
-    let dados =
-      null;
+    let dados = null;
 
-
-    let currentScreen =
-      0;
-
+    let currentScreen = 0;
 
     let nextChange =
       Date.now() +
       SCREEN_INTERVAL;
 
+    let requesting = false;
 
-    let requesting =
-      false;
+    let retryIndex = 0;
+
+    let lastSuccessTime = 0;
+
+    let refreshTimer = null;
 
 
     /**
      * ============================================================
-     * INÍCIO
+     * INICIALIZAÇÃO
      * ============================================================
      */
     document.addEventListener(
       'DOMContentLoaded',
-      () => {
-
-        criarDots();
-
-        carregarDados();
-
-
-        setInterval(
-          carregarDados,
-          DATA_INTERVAL
-        );
-
-
-        setInterval(
-          controlarRotacao,
-          1000
-        );
-
-      }
+      iniciar
     );
+
+
+    function iniciar() {
+
+      criarDots();
+
+
+      /**
+       * ==========================================================
+       * RECUPERA ÚLTIMOS DADOS BONS
+       * ==========================================================
+       */
+      recuperarDadosLocais();
+
+
+      /**
+       * Consulta imediatamente.
+       */
+      carregarDados();
+
+
+      /**
+       * Relógio / rotação.
+       */
+      setInterval(
+        controlarRotacao,
+        1000
+      );
+
+
+      /**
+       * Watchdog da conexão.
+       */
+      setInterval(
+        atualizarStatusConexao,
+        5000
+      );
+
+    }
 
 
     /**
      * ============================================================
-     * JSONP
+     * LOCAL STORAGE
      * ============================================================
-     *
-     * Utilizado para chamar Apps Script de um domínio externo
-     * sem depender de CORS.
+     */
+    function recuperarDadosLocais() {
+
+      try {
+
+        const salvo =
+          localStorage.getItem(
+            STORAGE_KEY
+          );
+
+
+        if (!salvo) {
+          return;
+        }
+
+
+        const obj =
+          JSON.parse(
+            salvo
+          );
+
+
+        if (
+          !obj ||
+          !obj.dados
+        ) {
+
+          return;
+
+        }
+
+
+        dados =
+          obj.dados;
+
+
+        lastSuccessTime =
+          Number(
+            obj.salvoEm || 0
+          );
+
+
+        renderizar();
+
+
+        document
+          .getElementById(
+            'loading'
+          )
+          .classList
+          .add(
+            'hidden'
+          );
+
+
+        mostrarTela(
+          currentScreen,
+          false
+        );
+
+
+        atualizarStatusConexao();
+
+      } catch (erro) {
+
+        console.log(
+          'Cache local inválido.'
+        );
+
+      }
+
+    }
+
+
+    function salvarDadosLocais() {
+
+      try {
+
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify(
+            {
+
+              salvoEm:
+                Date.now(),
+
+              dados:
+                dados
+
+            }
+          )
+        );
+
+      } catch (erro) {
+
+        // Não impede funcionamento.
+
+      }
+
+    }
+
+
+    /**
+     * ============================================================
+     * AGENDAR PRÓXIMA ATUALIZAÇÃO
+     * ============================================================
+     */
+    function agendarAtualizacaoNormal() {
+
+      if (refreshTimer) {
+
+        clearTimeout(
+          refreshTimer
+        );
+
+      }
+
+
+      refreshTimer =
+        setTimeout(
+          carregarDados,
+          DATA_INTERVAL
+        );
+
+    }
+
+
+    /**
+     * ============================================================
+     * CHAMADA JSONP
+     * ============================================================
      */
     function carregarDados() {
 
@@ -1717,24 +1520,7 @@
       }
 
 
-      if (
-        !API_URL ||
-        API_URL.indexOf(
-          'COLE_AQUI'
-        ) !== -1
-      ) {
-
-        mostrarErro(
-          'Configure a URL da API do Apps Script no index.html.'
-        );
-
-        return;
-
-      }
-
-
-      requesting =
-        true;
+      requesting = true;
 
 
       const callback =
@@ -1753,27 +1539,40 @@
         );
 
 
+      let finalizado =
+        false;
+
+
       const timeout =
         setTimeout(
           () => {
+
+            if (finalizado) {
+              return;
+            }
+
+
+            finalizado =
+              true;
+
 
             requesting =
               false;
 
 
-            cleanup();
+            limpar();
 
 
-            mostrarErro(
-              'Tempo limite na atualização. Os últimos dados continuam sendo exibidos.'
+            tratarFalha(
+              'Tempo limite na comunicação.'
             );
 
           },
-          20000
+          REQUEST_TIMEOUT
         );
 
 
-      function cleanup() {
+      function limpar() {
 
         clearTimeout(
           timeout
@@ -1786,7 +1585,7 @@
             callback
           ];
 
-        } catch (e) {
+        } catch (erro) {
 
           window[
             callback
@@ -1801,9 +1600,10 @@
           script.parentNode
         ) {
 
-          script.parentNode.removeChild(
-            script
-          );
+          script.parentNode
+            .removeChild(
+              script
+            );
 
         }
 
@@ -1817,11 +1617,20 @@
           resposta
         ) {
 
+          if (finalizado) {
+            return;
+          }
+
+
+          finalizado =
+            true;
+
+
           requesting =
             false;
 
 
-          cleanup();
+          limpar();
 
 
           if (
@@ -1829,23 +1638,40 @@
             !resposta.sucesso
           ) {
 
-            mostrarErro(
+            tratarFalha(
               resposta &&
               resposta.erro
                 ? resposta.erro
-                : 'Resposta inválida do servidor.'
+                : 'Resposta inválida.'
             );
+
 
             return;
 
           }
 
 
+          /**
+           * ======================================================
+           * SUCESSO
+           * ======================================================
+           */
           dados =
             resposta;
 
 
-          esconderErro();
+          lastSuccessTime =
+            Date.now();
+
+
+          retryIndex =
+            0;
+
+
+          salvarDadosLocais();
+
+
+          esconderAviso();
 
 
           renderizar();
@@ -1860,21 +1686,36 @@
               'hidden'
             );
 
+
+          atualizarStatusConexao();
+
+
+          agendarAtualizacaoNormal();
+
         };
 
 
       script.onerror =
         function() {
 
+          if (finalizado) {
+            return;
+          }
+
+
+          finalizado =
+            true;
+
+
           requesting =
             false;
 
 
-          cleanup();
+          limpar();
 
 
-          mostrarErro(
-            'Não foi possível conectar à API. Mantendo os últimos dados.'
+          tratarFalha(
+            'Falha temporária na conexão.'
           );
 
         };
@@ -1889,24 +1730,332 @@
 
 
       script.src =
-        API_URL
-        +
-        separador
-        +
-        'callback='
-        +
+        API_URL +
+        separador +
+        'callback=' +
         encodeURIComponent(
           callback
-        )
-        +
-        '&_='
-        +
+        ) +
+        '&_=' +
         Date.now();
 
 
-      document.head.appendChild(
-        script
+      document.head
+        .appendChild(
+          script
+        );
+
+    }
+
+
+    /**
+     * ============================================================
+     * TRATAMENTO DE FALHA
+     * ============================================================
+     */
+    function tratarFalha(
+      mensagem
+    ) {
+
+      atualizarStatusConexao(
+        true
       );
+
+
+      /**
+       * Ainda temos novas tentativas.
+       */
+      if (
+        retryIndex <
+        RETRY_DELAYS.length
+      ) {
+
+        const espera =
+          RETRY_DELAYS[
+            retryIndex
+          ];
+
+
+        retryIndex++;
+
+
+        /**
+         * Aviso discreto.
+         *
+         * Não mostramos uma grande faixa vermelha
+         * na primeira oscilação.
+         */
+        mostrarAviso(
+          'Reconectando... tentativa ' +
+          retryIndex +
+          '/' +
+          RETRY_DELAYS.length,
+          false
+        );
+
+
+        if (refreshTimer) {
+
+          clearTimeout(
+            refreshTimer
+          );
+
+        }
+
+
+        refreshTimer =
+          setTimeout(
+            carregarDados,
+            espera
+          );
+
+
+        return;
+
+      }
+
+
+      /**
+       * Tentativas esgotadas.
+       *
+       * Continua mostrando o último dado.
+       */
+      retryIndex =
+        0;
+
+
+      const idade =
+        lastSuccessTime > 0
+          ? Date.now() -
+            lastSuccessTime
+          : Infinity;
+
+
+      if (
+        idade >=
+        OFFLINE_AFTER
+      ) {
+
+        mostrarAviso(
+          'Sem atualização há mais de 5 minutos. Mantendo os últimos dados disponíveis.',
+          true
+        );
+
+      } else {
+
+        mostrarAviso(
+          'Oscilação de conexão. Mantendo os últimos dados.',
+          false
+        );
+
+      }
+
+
+      /**
+       * Tenta novamente em 60 segundos.
+       */
+      agendarAtualizacaoNormal();
+
+    }
+
+
+    /**
+     * ============================================================
+     * STATUS DA CONEXÃO
+     * ============================================================
+     */
+    function obterConnectionInfo() {
+
+      if (
+        lastSuccessTime <= 0
+      ) {
+
+        return {
+
+          classe:
+            'reconnecting',
+
+          texto:
+            'CONECTANDO'
+
+        };
+
+      }
+
+
+      const idade =
+        Date.now() -
+        lastSuccessTime;
+
+
+      if (
+        idade >=
+        OFFLINE_AFTER
+      ) {
+
+        return {
+
+          classe:
+            'offline',
+
+          texto:
+            'SEM CONEXÃO'
+
+        };
+
+      }
+
+
+      if (
+        requesting ||
+        retryIndex > 0
+      ) {
+
+        return {
+
+          classe:
+            'reconnecting',
+
+          texto:
+            'RECONECTANDO'
+
+        };
+
+      }
+
+
+      return {
+
+        classe:
+          'online',
+
+        texto:
+          'AO VIVO'
+
+      };
+
+    }
+
+
+    function atualizarStatusConexao() {
+
+      if (!dados) {
+        return;
+      }
+
+
+      /**
+       * Re-renderiza apenas o cabeçalho atual,
+       * preservando as telas.
+       */
+      const itens =
+        document.querySelectorAll(
+          '.connection'
+        );
+
+
+      const info =
+        obterConnectionInfo();
+
+
+      itens.forEach(
+        item => {
+
+          item.className =
+            'connection ' +
+            info.classe;
+
+
+          const texto =
+            item.querySelector(
+              '.connection-text'
+            );
+
+
+          if (texto) {
+
+            texto.textContent =
+              info.texto;
+
+          }
+
+        }
+      );
+
+    }
+
+
+    /**
+     * ============================================================
+     * AVISOS
+     * ============================================================
+     */
+    function mostrarAviso(
+      mensagem,
+      erro
+    ) {
+
+      const box =
+        document.getElementById(
+          'notice'
+        );
+
+
+      box.textContent =
+        mensagem;
+
+
+      box.className =
+        erro
+          ? 'error'
+          : '';
+
+
+      box.style.display =
+        'block';
+
+
+      /**
+       * Avisos amarelos desaparecem.
+       */
+      if (!erro) {
+
+        setTimeout(
+          () => {
+
+            if (
+              box.className !==
+              'error'
+            ) {
+
+              box.style.display =
+                'none';
+
+            }
+
+          },
+          7000
+        );
+
+      }
+
+    }
+
+
+    function esconderAviso() {
+
+      const box =
+        document.getElementById(
+          'notice'
+        );
+
+
+      box.style.display =
+        'none';
+
+
+      box.className =
+        '';
 
     }
 
@@ -1919,9 +2068,7 @@
     function renderizar() {
 
       if (!dados) {
-
         return;
-
       }
 
 
@@ -1945,15 +2092,16 @@
 
           telaUltimosTampas()
 
-        ].join(
-          ''
-        );
+        ].join('');
 
 
       mostrarTela(
         currentScreen,
         false
       );
+
+
+      atualizarStatusConexao();
 
     }
 
@@ -1967,6 +2115,10 @@
       titulo,
       subtitulo
     ) {
+
+      const conexao =
+        obterConnectionInfo();
+
 
       return `
 
@@ -1986,15 +2138,19 @@
           <div class="title-area">
 
             <div class="title">
+
               ${escapeHtml(
                 titulo
               )}
+
             </div>
 
             <div class="subtitle">
+
               ${escapeHtml(
                 subtitulo || ''
               )}
+
             </div>
 
           </div>
@@ -2002,17 +2158,31 @@
 
           <div class="header-right">
 
-            <div class="live">
+            <div
+              class="
+                connection
+                ${conexao.classe}
+              "
+            >
 
-              <span class="live-dot"></span>
+              <span
+                class="connection-dot"
+              ></span>
 
-              AO VIVO
+              <span
+                class="connection-text"
+              >
+
+                ${conexao.texto}
+
+              </span>
 
             </div>
 
+
             <div class="updated">
 
-              Atualizado:
+              Dados:
               ${escapeHtml(
                 dados.atualizadoEm
               )}
@@ -2058,7 +2228,7 @@
 
                   <th
                     style="
-                      width: 22%;
+                      width:22%;
                       text-align:left;
                     "
                   >
@@ -2085,13 +2255,12 @@
               <tbody>
 
                 ${
-                  dados.producaoAgora
+                  dados
+                    .producaoAgora
                     .map(
                       linhaProducaoAgora
                     )
-                    .join(
-                      ''
-                    )
+                    .join('')
                 }
 
               </tbody>
@@ -2111,11 +2280,6 @@
       item
     ) {
 
-      const possuiDados =
-        item.producao !== null &&
-        item.producao !== undefined;
-
-
       return `
 
         <tr>
@@ -2131,29 +2295,30 @@
 
           <td>
 
-            <span class="production-value">
+            <span
+              class="production-value"
+            >
 
               ${
-                possuiDados
-                  ? numero(
-                      item.producao,
-                      item.unidade ===
-                      'peças/h'
-                        ? 0
-                        : 1
-                    )
-                  : '—'
+                item.producao === null
+                  ? '—'
+                  :
+                  numero(
+                    item.producao,
+                    item.unidade ===
+                    'peças/h'
+                      ? 0
+                      : 1
+                  )
               }
 
             </span>
 
             <span class="unit">
 
-              ${
-                escapeHtml(
-                  item.unidade
-                )
-              }
+              ${escapeHtml(
+                item.unidade
+              )}
 
             </span>
 
@@ -2200,7 +2365,11 @@
             class="
               ${
                 item.refugoPct === null
-                  ? ''
+                  ? (
+                      item.refugo > 0
+                        ? 'bad'
+                        : ''
+                    )
                   :
                   item.refugoPct <
                   dados.metaRefugo
@@ -2212,7 +2381,11 @@
 
             ${
               item.refugoPct === null
-                ? '—'
+                ? (
+                    item.refugo > 0
+                      ? 'N/D'
+                      : '—'
+                  )
                 :
                 numero(
                   item.refugoPct,
@@ -2254,17 +2427,6 @@
      */
     function telaIndicadorPotes() {
 
-      const nomes = [
-
-        'JS 600',
-
-        'JS 2000',
-
-        'JS 2026'
-
-      ];
-
-
       return `
 
         <section
@@ -2281,7 +2443,11 @@
           <div class="machine-grid">
 
             ${
-              nomes
+              [
+                'JS 600',
+                'JS 2000',
+                'JS 2026'
+              ]
                 .map(
                   nome =>
                     painelIndicador(
@@ -2294,9 +2460,7 @@
                       'fardos/h'
                     )
                 )
-                .join(
-                  ''
-                )
+                .join('')
             }
 
           </div>
@@ -2310,7 +2474,7 @@
 
     /**
      * ============================================================
-     * PAINEL INDICADOR
+     * CARD INDICADOR
      * ============================================================
      */
     function painelIndicador(
@@ -2320,9 +2484,7 @@
     ) {
 
       if (!indicador) {
-
         return '';
-
       }
 
 
@@ -2342,11 +2504,8 @@
           <div class="labels">
 
             <div>Turno</div>
-
             <div>Produção</div>
-
             <div>Eficiência</div>
-
             <div>Refugo</div>
 
           </div>
@@ -2362,9 +2521,7 @@
                     unidade
                   )
               )
-              .join(
-                ''
-              )
+              .join('')
           }
 
 
@@ -2412,10 +2569,35 @@
         turno.apontamentos > 0;
 
 
-      const eficiencia =
-        temDados
-          ? turno.eficiencia
-          : 0;
+      const refugoTexto =
+        !temDados
+          ? '—'
+          :
+          turno.refugoPct === null
+            ? (
+                turno.refugo > 0
+                  ? 'N/D'
+                  : '—'
+              )
+            :
+            numero(
+              turno.refugoPct,
+              2
+            ) + '%';
+
+
+      const classeRefugo =
+        turno.refugoPct === null
+          ? (
+              turno.refugo > 0
+                ? 'bad'
+                : ''
+            )
+          :
+          turno.refugoPct <
+          dados.metaRefugo
+            ? 'good'
+            : 'bad';
 
 
       return `
@@ -2454,12 +2636,13 @@
               class="
                 turn-value
                 ${
-                  !temDados
-                    ? ''
-                    :
-                    turno.eficiencia >= 100
-                      ? 'good'
-                      : 'bad'
+                  temDados
+                    ? (
+                        turno.eficiencia >= 100
+                          ? 'good'
+                          : 'bad'
+                      )
+                    : ''
                 }
               "
             >
@@ -2479,26 +2662,11 @@
             <div
               class="
                 turn-value
-                ${
-                  !temDados
-                    ? ''
-                    :
-                    turno.refugoPct <
-                    dados.metaRefugo
-                      ? 'good'
-                      : 'bad'
-                }
+                ${classeRefugo}
               "
             >
 
-              ${
-                temDados
-                  ? numero(
-                      turno.refugoPct,
-                      2
-                    ) + '%'
-                  : '—'
-              }
+              ${refugoTexto}
 
             </div>
 
@@ -2516,14 +2684,14 @@
                     0,
                     Math.min(
                       100,
-                      eficiencia
+                      temDados
+                        ? turno.eficiencia
+                        : 0
                     )
                   )
                 }%;
               "
             ></div>
-
-            <div class="meta-line"></div>
 
           </div>
 
@@ -2655,34 +2823,24 @@
                         "
                       >
 
-                        <td>
-                          ${escapeHtml(r.hora)}
-                        </td>
+                        <td>${escapeHtml(r.hora)}</td>
 
-                        <td>
-                          ${escapeHtml(r.maquina)}
-                        </td>
+                        <td>${escapeHtml(r.maquina)}</td>
 
-                        <td>
-                          ${escapeHtml(r.turno)}
-                        </td>
+                        <td>${escapeHtml(r.turno)}</td>
 
-                        <td>
-                          ${escapeHtml(r.lider)}
-                        </td>
+                        <td>${escapeHtml(r.lider)}</td>
 
-                        <td>
-                          ${escapeHtml(r.referencia)}
-                        </td>
+                        <td>${escapeHtml(r.referencia)}</td>
 
                         <td>
                           <strong>
-                            ${numero(r.fardos, 0)}
+                            ${numero(r.fardos,0)}
                           </strong>
                         </td>
 
                         <td>
-                          ${numero(r.refugo, 0)}
+                          ${numero(r.refugo,0)}
                         </td>
 
                         <td>
@@ -2703,9 +2861,7 @@
 
                     `
                   )
-                  .join(
-                    ''
-                  )
+                  .join('')
               }
 
             </tbody>
@@ -2739,7 +2895,12 @@
           )}
 
 
-          <div class="machine-grid single">
+          <div
+            class="
+              machine-grid
+              single
+            "
+          >
 
             <div class="card machine">
 
@@ -2771,9 +2932,7 @@
                         'peças/h'
                       )
                   )
-                  .join(
-                    ''
-                  )
+                  .join('')
               }
 
 
@@ -2786,10 +2945,7 @@
                 <span>
                   Refugo:
                   &lt;
-                  ${numero(
-                    dados.metaRefugo,
-                    1
-                  )}%
+                  0,5%
                 </span>
 
               </div>
@@ -2835,114 +2991,15 @@
 
             ${
               registros.length === 0
-                ? vazio(
-                    'Nenhum apontamento nas últimas 5 horas'
-                  )
-                : `
-
-                  <div class="recent-wrap">
-
-                    <table class="recent-table">
-
-                      <colgroup>
-
-                        <col style="width:9%">
-                        <col style="width:12%">
-                        <col style="width:14%">
-                        <col style="width:11%">
-                        <col style="width:9%">
-                        <col style="width:13%">
-                        <col style="width:32%">
-
-                      </colgroup>
-
-
-                      <thead>
-
-                        <tr>
-
-                          <th>Hora</th>
-                          <th>Turno</th>
-                          <th>Líder</th>
-                          <th>Peças</th>
-                          <th>Refugo</th>
-                          <th>Tempo perdido</th>
-                          <th>Observação</th>
-
-                        </tr>
-
-                      </thead>
-
-
-                      <tbody>
-
-                        ${
-                          registros
-                            .map(
-                              r => `
-
-                                <tr
-                                  class="
-                                    ${
-                                      r.alerta
-                                        ? 'alert'
-                                        : ''
-                                    }
-                                  "
-                                >
-
-                                  <td>
-                                    ${escapeHtml(r.hora)}
-                                  </td>
-
-                                  <td>
-                                    ${escapeHtml(r.turno)}
-                                  </td>
-
-                                  <td>
-                                    ${escapeHtml(r.lider)}
-                                  </td>
-
-                                  <td>
-                                    <strong>
-                                      ${numero(r.pecas, 0)}
-                                    </strong>
-                                  </td>
-
-                                  <td>
-                                    ${numero(r.refugo, 0)}
-                                  </td>
-
-                                  <td>
-                                    ${escapeHtml(
-                                      r.tempoPerdido ||
-                                      '—'
-                                    )}
-                                  </td>
-
-                                  <td class="obs">
-                                    ${escapeHtml(
-                                      r.observacao ||
-                                      '—'
-                                    )}
-                                  </td>
-
-                                </tr>
-
-                              `
-                            )
-                            .join(
-                              ''
-                            )
-                        }
-
-                      </tbody>
-
-                    </table>
-
-                  </div>
-
-                `
+                ?
+                vazio(
+                  'Nenhum apontamento nas últimas 5 horas'
+                )
+                :
+                tabelaGenerica(
+                  registros,
+                  'preforma'
+                )
             }
 
 
@@ -2983,7 +3040,12 @@
           )}
 
 
-          <div class="machine-grid single">
+          <div
+            class="
+              machine-grid
+              single
+            "
+          >
 
             <div class="card machine">
 
@@ -3015,9 +3077,7 @@
                         'fardos/h'
                       )
                   )
-                  .join(
-                    ''
-                  )
+                  .join('')
               }
 
 
@@ -3028,12 +3088,9 @@
                 </span>
 
                 <span>
-                  Refugo:
-                  &lt;
-                  ${numero(
-                    dados.metaRefugo,
-                    1
-                  )}%
+                  300 tampas/fardo
+                  •
+                  Refugo &lt; 0,5%
                 </span>
 
               </div>
@@ -3079,120 +3136,15 @@
 
             ${
               registros.length === 0
-                ? vazio(
-                    'Nenhum apontamento nas últimas 5 horas'
-                  )
-                : `
-
-                  <div class="recent-wrap">
-
-                    <table class="recent-table">
-
-                      <colgroup>
-
-                        <col style="width:9%">
-                        <col style="width:11%">
-                        <col style="width:14%">
-                        <col style="width:10%">
-                        <col style="width:9%">
-                        <col style="width:9%">
-                        <col style="width:13%">
-                        <col style="width:25%">
-
-                      </colgroup>
-
-
-                      <thead>
-
-                        <tr>
-
-                          <th>Hora</th>
-                          <th>Turno</th>
-                          <th>Líder</th>
-                          <th>Cor</th>
-                          <th>Fardos</th>
-                          <th>Refugo</th>
-                          <th>Tempo perdido</th>
-                          <th>Observação</th>
-
-                        </tr>
-
-                      </thead>
-
-
-                      <tbody>
-
-                        ${
-                          registros
-                            .map(
-                              r => `
-
-                                <tr
-                                  class="
-                                    ${
-                                      r.alerta
-                                        ? 'alert'
-                                        : ''
-                                    }
-                                  "
-                                >
-
-                                  <td>
-                                    ${escapeHtml(r.hora)}
-                                  </td>
-
-                                  <td>
-                                    ${escapeHtml(r.turno)}
-                                  </td>
-
-                                  <td>
-                                    ${escapeHtml(r.lider)}
-                                  </td>
-
-                                  <td>
-                                    ${escapeHtml(r.cor)}
-                                  </td>
-
-                                  <td>
-                                    <strong>
-                                      ${numero(r.fardos, 0)}
-                                    </strong>
-                                  </td>
-
-                                  <td>
-                                    ${numero(r.refugo, 0)}
-                                  </td>
-
-                                  <td>
-                                    ${escapeHtml(
-                                      r.tempoPerdido ||
-                                      '—'
-                                    )}
-                                  </td>
-
-                                  <td class="obs">
-                                    ${escapeHtml(
-                                      r.observacao ||
-                                      '—'
-                                    )}
-                                  </td>
-
-                                </tr>
-
-                              `
-                            )
-                            .join(
-                              ''
-                            )
-                        }
-
-                      </tbody>
-
-                    </table>
-
-                  </div>
-
-                `
+                ?
+                vazio(
+                  'Nenhum apontamento nas últimas 5 horas'
+                )
+                :
+                tabelaGenerica(
+                  registros,
+                  'tampas'
+                )
             }
 
 
@@ -3215,15 +3167,148 @@
 
     /**
      * ============================================================
+     * TABELAS PRÉ-FORMA / TAMPAS
+     * ============================================================
+     */
+    function tabelaGenerica(
+      registros,
+      tipo
+    ) {
+
+      const preforma =
+        tipo ===
+        'preforma';
+
+
+      return `
+
+        <div class="recent-wrap">
+
+          <table class="recent-table">
+
+            <thead>
+
+              <tr>
+
+                <th>Hora</th>
+                <th>Turno</th>
+                <th>Líder</th>
+
+                ${
+                  preforma
+                    ?
+                    '<th>Peças</th>'
+                    :
+                    '<th>Cor</th><th>Fardos</th>'
+                }
+
+                <th>Refugo</th>
+                <th>Tempo perdido</th>
+                <th>Observação</th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+              ${
+                registros
+                  .map(
+                    r => `
+
+                      <tr
+                        class="
+                          ${
+                            r.alerta
+                              ? 'alert'
+                              : ''
+                          }
+                        "
+                      >
+
+                        <td>
+                          ${escapeHtml(r.hora)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(r.turno)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(r.lider)}
+                        </td>
+
+                        ${
+                          preforma
+                            ?
+                            `
+                              <td>
+                                <strong>
+                                  ${numero(r.pecas,0)}
+                                </strong>
+                              </td>
+                            `
+                            :
+                            `
+                              <td>
+                                ${escapeHtml(r.cor)}
+                              </td>
+
+                              <td>
+                                <strong>
+                                  ${numero(r.fardos,0)}
+                                </strong>
+                              </td>
+                            `
+                        }
+
+                        <td>
+                          ${numero(r.refugo,0)}
+                        </td>
+
+                        <td>
+                          ${escapeHtml(
+                            r.tempoPerdido ||
+                            '—'
+                          )}
+                        </td>
+
+                        <td class="obs">
+                          ${escapeHtml(
+                            r.observacao ||
+                            '—'
+                          )}
+                        </td>
+
+                      </tr>
+
+                    `
+                  )
+                  .join('')
+              }
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /**
+     * ============================================================
      * ROTAÇÃO
      * ============================================================
      */
     function controlarRotacao() {
 
       if (!dados) {
-
         return;
-
       }
 
 
@@ -3282,17 +3367,15 @@
           '.screen'
         )
         .forEach(
-          tela => {
-
-            tela.classList.remove(
-              'active'
-            );
-
-          }
+          tela =>
+            tela.classList
+              .remove(
+                'active'
+              )
         );
 
 
-      const tela =
+      const alvo =
         document.getElementById(
           SCREENS[
             currentScreen
@@ -3300,11 +3383,12 @@
         );
 
 
-      if (tela) {
+      if (alvo) {
 
-        tela.classList.add(
-          'active'
-        );
+        alvo.classList
+          .add(
+            'active'
+          );
 
       }
 
@@ -3322,9 +3406,7 @@
       atualizarDots();
 
 
-      if (
-        resetTimer
-      ) {
+      if (resetTimer) {
 
         nextChange =
           Date.now() +
@@ -3349,22 +3431,10 @@
         .innerHTML =
           SCREENS
             .map(
-              (
-                _,
-                index
-              ) =>
-                `
-
-                  <span
-                    class="dot"
-                    data-index="${index}"
-                  ></span>
-
-                `
+              () =>
+                '<span class="dot"></span>'
             )
-            .join(
-              ''
-            );
+            .join('');
 
     }
 
@@ -3378,14 +3448,13 @@
         .forEach(
           (
             dot,
-            index
+            i
           ) => {
 
-            dot
-              .classList
+            dot.classList
               .toggle(
                 'active',
-                index ===
+                i ===
                 currentScreen
               );
 
@@ -3405,15 +3474,18 @@
     ) {
 
       if (
-        status === 'OK'
+        status ===
+        'OK'
       ) {
 
         return `
 
-          <span class="
-            status-pill
-            status-ok
-          ">
+          <span
+            class="
+              status-pill
+              status-ok
+            "
+          >
             ● OK
           </span>
 
@@ -3423,15 +3495,18 @@
 
 
       if (
-        status === 'ALERTA'
+        status ===
+        'ALERTA'
       ) {
 
         return `
 
-          <span class="
-            status-pill
-            status-alert
-          ">
+          <span
+            class="
+              status-pill
+              status-alert
+            "
+          >
             ● ALERTA
           </span>
 
@@ -3442,10 +3517,12 @@
 
       return `
 
-        <span class="
-          status-pill
-          status-none
-        ">
+        <span
+          class="
+            status-pill
+            status-none
+          "
+        >
           SEM DADOS
         </span>
 
@@ -3454,11 +3531,6 @@
     }
 
 
-    /**
-     * ============================================================
-     * VAZIO
-     * ============================================================
-     */
     function vazio(
       mensagem
     ) {
@@ -3546,49 +3618,13 @@
         valor === null ||
         valor === undefined
           ? ''
-          : String(
-              valor
-            );
+          :
+          String(
+            valor
+          );
 
 
       return div.innerHTML;
-
-    }
-
-
-    /**
-     * ============================================================
-     * ERRO
-     * ============================================================
-     */
-    function mostrarErro(
-      mensagem
-    ) {
-
-      const box =
-        document.getElementById(
-          'error'
-        );
-
-
-      box.textContent =
-        mensagem;
-
-
-      box.style.display =
-        'block';
-
-    }
-
-
-    function esconderErro() {
-
-      document
-        .getElementById(
-          'error'
-        )
-        .style.display =
-          'none';
 
     }
 
