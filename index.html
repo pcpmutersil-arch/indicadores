@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
@@ -18,18 +19,15 @@
     :root {
 
       --bg: #06101c;
-      --bg2: #0c1d31;
       --card: #10253c;
-      --card2: #0b1b2d;
-
       --text: #f1f7fd;
       --muted: #9fb3c8;
 
       --blue: #1498ff;
       --cyan: #10d8e8;
+
       --green: #24d68f;
       --yellow: #ffd052;
-      --orange: #ff9f43;
       --red: #ff4357;
 
       --border:
@@ -39,7 +37,10 @@
 
 
     * {
-      box-sizing: border-box;
+
+      box-sizing:
+        border-box;
+
     }
 
 
@@ -90,9 +91,9 @@
     }
 
 
-    /* ============================================================
+    /* ===========================================================
        TELAS
-       ============================================================ */
+       =========================================================== */
 
     .screen {
 
@@ -134,9 +135,9 @@
     }
 
 
-    /* ============================================================
-       HEADER
-       ============================================================ */
+    /* ===========================================================
+       CABEÇALHO
+       =========================================================== */
 
     .header {
 
@@ -161,7 +162,6 @@
     .logo {
 
       max-width: 165px;
-
       max-height: 85px;
 
       object-fit: contain;
@@ -191,9 +191,9 @@
 
       font-weight: 900;
 
-      letter-spacing: .4px;
-
       line-height: 1;
+
+      letter-spacing: .5px;
 
     }
 
@@ -290,10 +290,6 @@
       background:
         var(--yellow);
 
-      box-shadow:
-        0 0 14px
-        var(--yellow);
-
     }
 
 
@@ -309,10 +305,6 @@
     .connection-dot {
 
       background:
-        var(--red);
-
-      box-shadow:
-        0 0 14px
         var(--red);
 
     }
@@ -332,9 +324,9 @@
     }
 
 
-    /* ============================================================
-       AVISOS
-       ============================================================ */
+    /* ===========================================================
+       AVISO CONEXÃO
+       =========================================================== */
 
     #notice {
 
@@ -343,7 +335,6 @@
       position: fixed;
 
       top: 10px;
-
       left: 50%;
 
       transform:
@@ -351,20 +342,16 @@
 
       z-index: 5000;
 
-      max-width: 780px;
-
       padding:
         10px
         20px;
 
       border-radius: 12px;
 
-      color: #111;
-
       background:
         var(--yellow);
 
-      font-size: 15px;
+      color: #111;
 
       font-weight: 900;
 
@@ -385,9 +372,9 @@
     }
 
 
-    /* ============================================================
-       CARDS
-       ============================================================ */
+    /* ===========================================================
+       CARD
+       =========================================================== */
 
     .card {
 
@@ -412,9 +399,9 @@
     }
 
 
-    /* ============================================================
+    /* ===========================================================
        PRODUÇÃO AGORA
-       ============================================================ */
+       =========================================================== */
 
     .overview {
 
@@ -436,9 +423,9 @@
       width: 100%;
       height: 100%;
 
-      border-collapse: collapse;
-
       table-layout: fixed;
+
+      border-collapse: collapse;
 
     }
 
@@ -448,18 +435,18 @@
       color:
         var(--muted);
 
+      padding: 10px;
+
+      text-align: center;
+
+      text-transform: uppercase;
+
       font-size:
         clamp(
           14px,
           1vw,
           19px
         );
-
-      text-transform: uppercase;
-
-      padding: 10px;
-
-      text-align: center;
 
       border-bottom:
         2px solid
@@ -471,8 +458,7 @@
     .overview-table td {
 
       padding:
-        11px
-        12px;
+        11px 12px;
 
       text-align: center;
 
@@ -523,10 +509,10 @@
 
       margin-top: 3px;
 
-      font-size: 11px;
-
       color:
         var(--muted);
+
+      font-size: 11px;
 
     }
 
@@ -542,8 +528,7 @@
       align-items: center;
 
       padding:
-        9px
-        14px;
+        9px 14px;
 
       border-radius: 999px;
 
@@ -599,9 +584,9 @@
     }
 
 
-    /* ============================================================
+    /* ===========================================================
        INDICADORES
-       ============================================================ */
+       =========================================================== */
 
     .machine-grid {
 
@@ -644,6 +629,8 @@
 
     .machine-title {
 
+      margin-bottom: 17px;
+
       text-align: center;
 
       font-size:
@@ -654,8 +641,6 @@
         );
 
       font-weight: 950;
-
-      margin-bottom: 17px;
 
     }
 
@@ -680,6 +665,8 @@
 
     .labels {
 
+      margin-bottom: 3px;
+
       color:
         var(--muted);
 
@@ -688,8 +675,6 @@
       font-weight: 900;
 
       text-transform: uppercase;
-
-      margin-bottom: 3px;
 
     }
 
@@ -745,17 +730,17 @@
 
     .progress {
 
-      margin-top: 9px;
-
       width: 100%;
       height: 13px;
 
-      background:
-        rgba(255,255,255,.08);
+      margin-top: 9px;
+
+      overflow: hidden;
 
       border-radius: 999px;
 
-      overflow: hidden;
+      background:
+        rgba(255,255,255,.08);
 
     }
 
@@ -773,9 +758,6 @@
           var(--blue),
           var(--cyan)
         );
-
-      transition:
-        width .6s ease;
 
     }
 
@@ -805,9 +787,9 @@
     }
 
 
-    /* ============================================================
+    /* ===========================================================
        ÚLTIMOS APONTAMENTOS
-       ============================================================ */
+       =========================================================== */
 
     .recent-card {
 
@@ -856,6 +838,8 @@
 
       padding: 7px;
 
+      text-align: left;
+
       color:
         var(--muted);
 
@@ -868,16 +852,13 @@
           16px
         );
 
-      text-align: left;
-
     }
 
 
     .recent-table td {
 
       padding:
-        8px
-        7px;
+        8px 7px;
 
       background:
         rgba(255,255,255,.045);
@@ -936,10 +917,10 @@
 
       place-items: center;
 
-      text-align: center;
-
       color:
         var(--muted);
+
+      text-align: center;
 
       font-size:
         clamp(
@@ -973,9 +954,9 @@
     }
 
 
-    /* ============================================================
-       RODAPÉ
-       ============================================================ */
+    /* ===========================================================
+       FOOTER
+       =========================================================== */
 
     #footer {
 
@@ -1072,9 +1053,9 @@
     }
 
 
-    /* ============================================================
+    /* ===========================================================
        LOADING
-       ============================================================ */
+       =========================================================== */
 
     #loading {
 
@@ -1132,10 +1113,7 @@
       border-radius: 50%;
 
       animation:
-        girar
-        .9s
-        linear
-        infinite;
+        girar .9s linear infinite;
 
     }
 
@@ -1160,7 +1138,6 @@
 
 
   <div id="app"></div>
-
 
   <div id="notice"></div>
 
@@ -1203,46 +1180,29 @@
   <script>
 
     /**
-     * ============================================================
-     * API ATUAL
-     * ============================================================
+     * Se a implantação /exec mudou,
+     * altere somente esta URL.
      */
     const API_URL =
-      'https://script.google.com/macros/s/AKfycbwNEDgcyi8T44gAfv63h4iwxh1AsxzHrSAQXMB4B7QhJd0_0a0Ag5cyqOmNF_K7YkElbQ/exec';
+      'https://script.google.com/macros/s/AKfycbzeZqe2NVkftxvOVrDFGRYTlxOhJuKzVVt59TyJxRxV2O-6fY4zxHuqHDz_FttbsQFUng/exec';
 
 
     const LOGO_URL =
       'https://drive.google.com/thumbnail?id=1cVRA4xRIeOICfUG0FkOzuhwI2YVYOdII&sz=w500';
 
 
-    /**
-     * Troca visual:
-     * 30 segundos.
-     */
     const SCREEN_INTERVAL =
       30000;
 
 
-    /**
-     * CORRIGIDO:
-     *
-     * Atualização de dados:
-     * 60 segundos.
-     */
     const DATA_INTERVAL =
       60000;
 
 
-    /**
-     * Tempo máximo de cada tentativa.
-     */
     const REQUEST_TIMEOUT =
       25000;
 
 
-    /**
-     * Repetições após falha.
-     */
     const RETRY_DELAYS = [
 
       3000,
@@ -1254,82 +1214,108 @@
     ];
 
 
-    /**
-     * Só consideramos realmente offline
-     * após 5 minutos sem atualização válida.
-     */
     const OFFLINE_AFTER =
-      5 *
-      60 *
-      1000;
+      5 * 60 * 1000;
 
 
+    /**
+     * Nova chave para não recuperar dados antigos
+     * com regras anteriores.
+     */
     const STORAGE_KEY =
-      'MUTERSIL_DASHBOARD_LAST_GOOD_V3';
+      'MUTERSIL_DASHBOARD_LAST_GOOD_V5';
 
 
     const SCREENS = [
 
       {
-        id: 'producao-agora',
-        name: 'Produção Agora'
+        id:
+          'producao-agora',
+
+        name:
+          'Produção Agora'
       },
 
       {
-        id: 'indicador-potes',
-        name: 'Indicador Potes'
+        id:
+          'indicador-potes',
+
+        name:
+          'Indicador Potes'
       },
 
       {
-        id: 'ultimos-potes',
-        name: 'Últimos Apontamentos — Potes'
+        id:
+          'ultimos-potes',
+
+        name:
+          'Últimos Apontamentos — Potes'
       },
 
       {
-        id: 'indicador-preforma',
-        name: 'Indicador Pré-formas'
+        id:
+          'indicador-preforma',
+
+        name:
+          'Indicador Pré-formas'
       },
 
       {
-        id: 'ultimos-preforma',
-        name: 'Últimos Apontamentos — Pré-formas'
+        id:
+          'ultimos-preforma',
+
+        name:
+          'Últimos Apontamentos — Pré-formas'
       },
 
       {
-        id: 'indicador-tampas',
-        name: 'Indicador Tampas'
+        id:
+          'indicador-tampas',
+
+        name:
+          'Indicador Tampas'
       },
 
       {
-        id: 'ultimos-tampas',
-        name: 'Últimos Apontamentos — Tampas'
+        id:
+          'ultimos-tampas',
+
+        name:
+          'Últimos Apontamentos — Tampas'
       }
 
     ];
 
 
-    let dados = null;
+    let dados =
+      null;
 
-    let currentScreen = 0;
+
+    let currentScreen =
+      0;
+
 
     let nextChange =
       Date.now() +
       SCREEN_INTERVAL;
 
-    let requesting = false;
 
-    let retryIndex = 0;
-
-    let lastSuccessTime = 0;
-
-    let refreshTimer = null;
+    let requesting =
+      false;
 
 
-    /**
-     * ============================================================
-     * INICIALIZAÇÃO
-     * ============================================================
-     */
+    let retryIndex =
+      0;
+
+
+    let lastSuccessTime =
+      0;
+
+
+    let refreshTimer =
+      null;
+
+
     document.addEventListener(
       'DOMContentLoaded',
       iniciar
@@ -1340,33 +1326,17 @@
 
       criarDots();
 
-
-      /**
-       * ==========================================================
-       * RECUPERA ÚLTIMOS DADOS BONS
-       * ==========================================================
-       */
       recuperarDadosLocais();
 
-
-      /**
-       * Consulta imediatamente.
-       */
       carregarDados();
 
 
-      /**
-       * Relógio / rotação.
-       */
       setInterval(
         controlarRotacao,
         1000
       );
 
 
-      /**
-       * Watchdog da conexão.
-       */
       setInterval(
         atualizarStatusConexao,
         5000
@@ -1375,11 +1345,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * LOCAL STORAGE
-     * ============================================================
-     */
+    /* ============================================================
+       LOCAL STORAGE
+       ============================================================ */
+
     function recuperarDadosLocais() {
 
       try {
@@ -1391,14 +1360,14 @@
 
 
         if (!salvo) {
+
           return;
+
         }
 
 
         const obj =
-          JSON.parse(
-            salvo
-          );
+          JSON.parse(salvo);
 
 
         if (
@@ -1434,18 +1403,13 @@
           );
 
 
-        mostrarTela(
-          currentScreen,
-          false
-        );
-
-
         atualizarStatusConexao();
+
 
       } catch (erro) {
 
         console.log(
-          'Cache local inválido.'
+          'Cache local ignorado.'
         );
 
       }
@@ -1474,18 +1438,17 @@
 
       } catch (erro) {
 
-        // Não impede funcionamento.
+        // Ignora.
 
       }
 
     }
 
 
-    /**
-     * ============================================================
-     * AGENDAR PRÓXIMA ATUALIZAÇÃO
-     * ============================================================
-     */
+    /* ============================================================
+       ATUALIZAÇÃO
+       ============================================================ */
+
     function agendarAtualizacaoNormal() {
 
       if (refreshTimer) {
@@ -1506,11 +1469,6 @@
     }
 
 
-    /**
-     * ============================================================
-     * CHAMADA JSONP
-     * ============================================================
-     */
     function carregarDados() {
 
       if (requesting) {
@@ -1520,7 +1478,8 @@
       }
 
 
-      requesting = true;
+      requesting =
+        true;
 
 
       const callback =
@@ -1548,7 +1507,9 @@
           () => {
 
             if (finalizado) {
+
               return;
+
             }
 
 
@@ -1596,7 +1557,6 @@
 
 
         if (
-          script &&
           script.parentNode
         ) {
 
@@ -1618,7 +1578,9 @@
         ) {
 
           if (finalizado) {
+
             return;
+
           }
 
 
@@ -1651,11 +1613,6 @@
           }
 
 
-          /**
-           * ======================================================
-           * SUCESSO
-           * ======================================================
-           */
           dados =
             resposta;
 
@@ -1670,9 +1627,7 @@
 
           salvarDadosLocais();
 
-
           esconderAviso();
-
 
           renderizar();
 
@@ -1689,7 +1644,6 @@
 
           atualizarStatusConexao();
 
-
           agendarAtualizacaoNormal();
 
         };
@@ -1699,7 +1653,9 @@
         function() {
 
           if (finalizado) {
+
             return;
+
           }
 
 
@@ -1721,18 +1677,9 @@
         };
 
 
-      const separador =
-        API_URL.indexOf(
-          '?'
-        ) === -1
-          ? '?'
-          : '&';
-
-
       script.src =
         API_URL +
-        separador +
-        'callback=' +
+        '?callback=' +
         encodeURIComponent(
           callback
         ) +
@@ -1748,23 +1695,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * TRATAMENTO DE FALHA
-     * ============================================================
-     */
     function tratarFalha(
       mensagem
     ) {
 
-      atualizarStatusConexao(
-        true
-      );
-
-
-      /**
-       * Ainda temos novas tentativas.
-       */
       if (
         retryIndex <
         RETRY_DELAYS.length
@@ -1779,12 +1713,6 @@
         retryIndex++;
 
 
-        /**
-         * Aviso discreto.
-         *
-         * Não mostramos uma grande faixa vermelha
-         * na primeira oscilação.
-         */
         mostrarAviso(
           'Reconectando... tentativa ' +
           retryIndex +
@@ -1794,15 +1722,6 @@
         );
 
 
-        if (refreshTimer) {
-
-          clearTimeout(
-            refreshTimer
-          );
-
-        }
-
-
         refreshTimer =
           setTimeout(
             carregarDados,
@@ -1810,16 +1729,13 @@
           );
 
 
+        atualizarStatusConexao();
+
         return;
 
       }
 
 
-      /**
-       * Tentativas esgotadas.
-       *
-       * Continua mostrando o último dado.
-       */
       retryIndex =
         0;
 
@@ -1837,7 +1753,7 @@
       ) {
 
         mostrarAviso(
-          'Sem atualização há mais de 5 minutos. Mantendo os últimos dados disponíveis.',
+          'Sem atualização há mais de 5 minutos. Mantendo os últimos dados.',
           true
         );
 
@@ -1851,19 +1767,17 @@
       }
 
 
-      /**
-       * Tenta novamente em 60 segundos.
-       */
+      atualizarStatusConexao();
+
       agendarAtualizacaoNormal();
 
     }
 
 
-    /**
-     * ============================================================
-     * STATUS DA CONEXÃO
-     * ============================================================
-     */
+    /* ============================================================
+       CONEXÃO
+       ============================================================ */
+
     function obterConnectionInfo() {
 
       if (
@@ -1939,57 +1853,41 @@
 
     function atualizarStatusConexao() {
 
-      if (!dados) {
-        return;
-      }
-
-
-      /**
-       * Re-renderiza apenas o cabeçalho atual,
-       * preservando as telas.
-       */
-      const itens =
-        document.querySelectorAll(
-          '.connection'
-        );
-
-
       const info =
         obterConnectionInfo();
 
 
-      itens.forEach(
-        item => {
+      document
+        .querySelectorAll(
+          '.connection'
+        )
+        .forEach(
+          item => {
 
-          item.className =
-            'connection ' +
-            info.classe;
-
-
-          const texto =
-            item.querySelector(
-              '.connection-text'
-            );
+            item.className =
+              'connection ' +
+              info.classe;
 
 
-          if (texto) {
+            const texto =
+              item.querySelector(
+                '.connection-text'
+              );
 
-            texto.textContent =
-              info.texto;
+
+            if (texto) {
+
+              texto.textContent =
+                info.texto;
+
+            }
 
           }
-
-        }
-      );
+        );
 
     }
 
 
-    /**
-     * ============================================================
-     * AVISOS
-     * ============================================================
-     */
     function mostrarAviso(
       mensagem,
       erro
@@ -2015,9 +1913,6 @@
         'block';
 
 
-      /**
-       * Avisos amarelos desaparecem.
-       */
       if (!erro) {
 
         setTimeout(
@@ -2060,15 +1955,16 @@
     }
 
 
-    /**
-     * ============================================================
-     * RENDER
-     * ============================================================
-     */
+    /* ============================================================
+       RENDERIZAÇÃO
+       ============================================================ */
+
     function renderizar() {
 
       if (!dados) {
+
         return;
+
       }
 
 
@@ -2106,11 +2002,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * HEADER
-     * ============================================================
-     */
+    /* ============================================================
+       CABEÇALHO
+       ============================================================ */
+
     function header(
       titulo,
       subtitulo
@@ -2138,19 +2033,11 @@
           <div class="title-area">
 
             <div class="title">
-
-              ${escapeHtml(
-                titulo
-              )}
-
+              ${escapeHtml(titulo)}
             </div>
 
             <div class="subtitle">
-
-              ${escapeHtml(
-                subtitulo || ''
-              )}
-
+              ${escapeHtml(subtitulo || '')}
             </div>
 
           </div>
@@ -2172,9 +2059,7 @@
               <span
                 class="connection-text"
               >
-
                 ${conexao.texto}
-
               </span>
 
             </div>
@@ -2198,11 +2083,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * PRODUÇÃO AGORA
-     * ============================================================
-     */
+    /* ============================================================
+       PRODUÇÃO AGORA
+       ============================================================ */
+
     function telaProducaoAgora() {
 
       return `
@@ -2285,19 +2169,13 @@
         <tr>
 
           <td class="name">
-
-            ${escapeHtml(
-              item.nome
-            )}
-
+            ${escapeHtml(item.nome)}
           </td>
 
 
           <td>
 
-            <span
-              class="production-value"
-            >
+            <span class="production-value">
 
               ${
                 item.producao === null
@@ -2315,11 +2193,7 @@
             </span>
 
             <span class="unit">
-
-              ${escapeHtml(
-                item.unidade
-              )}
-
+              ${escapeHtml(item.unidade)}
             </span>
 
           </td>
@@ -2327,10 +2201,7 @@
 
           <td>
 
-            ${numero(
-              item.meta,
-              0
-            )}
+            ${metaDisplay(item)}
 
           </td>
 
@@ -2338,12 +2209,10 @@
           <td
             class="
               ${
-                item.eficiencia === null
-                  ? ''
-                  :
-                  item.eficiencia >= 100
-                    ? 'good'
-                    : 'bad'
+                classeEficiencia(
+                  item.eficiencia,
+                  item.eficienciaMinima
+                )
               }
             "
           >
@@ -2364,53 +2233,29 @@
           <td
             class="
               ${
-                item.refugoPct === null
-                  ? (
-                      item.refugo > 0
-                        ? 'bad'
-                        : ''
-                    )
-                  :
-                  item.refugoPct <
-                  dados.metaRefugo
-                    ? 'good'
-                    : 'bad'
+                classeRefugo(
+                  item.refugoPct,
+                  item.refugo
+                )
               }
             "
           >
 
-            ${
-              item.refugoPct === null
-                ? (
-                    item.refugo > 0
-                      ? 'N/D'
-                      : '—'
-                  )
-                :
-                numero(
-                  item.refugoPct,
-                  2
-                ) + '%'
-            }
-
-          </td>
-
-
-          <td>
-
-            ${escapeHtml(
-              item.turno
+            ${textoRefugo(
+              item.refugoPct,
+              item.refugo
             )}
 
           </td>
 
 
           <td>
+            ${escapeHtml(item.turno)}
+          </td>
 
-            ${statusPill(
-              item.status
-            )}
 
+          <td>
+            ${statusPill(item.status)}
           </td>
 
         </tr>
@@ -2420,11 +2265,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * INDICADOR POTES
-     * ============================================================
-     */
+    /* ============================================================
+       INDICADOR POTES
+       ============================================================ */
+
     function telaIndicadorPotes() {
 
       return `
@@ -2450,14 +2294,13 @@
               ]
                 .map(
                   nome =>
-                    painelIndicador(
+                    painelPotes(
                       nome,
                       dados
                         .potes
                         .maquinas[
                           nome
-                        ],
-                      'fardos/h'
+                        ]
                     )
                 )
                 .join('')
@@ -2472,19 +2315,15 @@
     }
 
 
-    /**
-     * ============================================================
-     * CARD INDICADOR
-     * ============================================================
-     */
-    function painelIndicador(
+    function painelPotes(
       titulo,
-      indicador,
-      unidade
+      indicador
     ) {
 
       if (!indicador) {
+
         return '';
+
       }
 
 
@@ -2493,11 +2332,7 @@
         <div class="card machine">
 
           <div class="machine-title">
-
-            ${escapeHtml(
-              titulo
-            )}
-
+            ${escapeHtml(titulo)}
           </div>
 
 
@@ -2518,7 +2353,7 @@
                 turno =>
                   linhaTurno(
                     turno,
-                    unidade
+                    'fardos/h'
                   )
               )
               .join('')
@@ -2529,21 +2364,46 @@
 
             <span>
 
-              Meta:
-              ${numero(
-                indicador.meta,
-                0
-              )}
-              ${escapeHtml(
-                unidade
-              )}
+              ${
+                indicador.metaVariavel
+                  ?
+                  (
+                    indicador.ultimaReferencia
+                      ?
+                      'Meta atual: ' +
+                      numero(
+                        indicador.meta,
+                        0
+                      ) +
+                      ' fardos/h (' +
+                      escapeHtml(
+                        indicador.ultimaReferencia
+                      ) +
+                      ')'
+                      :
+                      'Meta conforme produto'
+                  )
+                  :
+                  'Meta: ' +
+                  numero(
+                    indicador.meta,
+                    0
+                  ) +
+                  ' fardos/h'
+              }
 
             </span>
 
+
             <span>
 
-              Refugo:
-              &lt;
+              Verde ≥
+              ${numero(
+                indicador.eficienciaMinima,
+                0
+              )}%
+              •
+              Refugo &lt;
               ${numero(
                 dados.metaRefugo,
                 1
@@ -2560,6 +2420,10 @@
     }
 
 
+    /* ============================================================
+       LINHA DE TURNO
+       ============================================================ */
+
     function linhaTurno(
       turno,
       unidade
@@ -2569,35 +2433,10 @@
         turno.apontamentos > 0;
 
 
-      const refugoTexto =
-        !temDados
-          ? '—'
-          :
-          turno.refugoPct === null
-            ? (
-                turno.refugo > 0
-                  ? 'N/D'
-                  : '—'
-              )
-            :
-            numero(
-              turno.refugoPct,
-              2
-            ) + '%';
-
-
-      const classeRefugo =
-        turno.refugoPct === null
-          ? (
-              turno.refugo > 0
-                ? 'bad'
-                : ''
-            )
-          :
-          turno.refugoPct <
-          dados.metaRefugo
-            ? 'good'
-            : 'bad';
+      const eficiencia =
+        temDados
+          ? turno.eficiencia
+          : null;
 
 
       return `
@@ -2607,11 +2446,7 @@
           <div class="turn-top">
 
             <div class="turn-name">
-
-              ${escapeHtml(
-                turno.turno
-              )}
-
+              ${escapeHtml(turno.turno)}
             </div>
 
 
@@ -2619,14 +2454,16 @@
 
               ${
                 temDados
-                  ? numero(
-                      turno.producao,
-                      unidade ===
-                      'peças/h'
-                        ? 0
-                        : 2
-                    )
-                  : '—'
+                  ?
+                  numero(
+                    turno.producao,
+                    unidade ===
+                    'peças/h'
+                      ? 0
+                      : 2
+                  )
+                  :
+                  '—'
               }
 
             </div>
@@ -2636,24 +2473,22 @@
               class="
                 turn-value
                 ${
-                  temDados
-                    ? (
-                        turno.eficiencia >= 100
-                          ? 'good'
-                          : 'bad'
-                      )
-                    : ''
+                  classeEficiencia(
+                    eficiencia,
+                    turno.eficienciaMinima
+                  )
                 }
               "
             >
 
               ${
-                temDados
-                  ? numero(
-                      turno.eficiencia,
-                      1
-                    ) + '%'
-                  : '—'
+                eficiencia === null
+                  ? '—'
+                  :
+                  numero(
+                    eficiencia,
+                    1
+                  ) + '%'
               }
 
             </div>
@@ -2662,11 +2497,19 @@
             <div
               class="
                 turn-value
-                ${classeRefugo}
+                ${
+                  classeRefugo(
+                    turno.refugoPct,
+                    turno.refugo
+                  )
+                }
               "
             >
 
-              ${refugoTexto}
+              ${textoRefugo(
+                turno.refugoPct,
+                turno.refugo
+              )}
 
             </div>
 
@@ -2684,9 +2527,7 @@
                     0,
                     Math.min(
                       100,
-                      temDados
-                        ? turno.eficiencia
-                        : 0
+                      eficiencia || 0
                     )
                   )
                 }%;
@@ -2702,11 +2543,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * ÚLTIMOS POTES
-     * ============================================================
-     */
+    /* ============================================================
+       ÚLTIMOS POTES
+       ============================================================ */
+
     function telaUltimosPotes() {
 
       return `
@@ -2718,7 +2558,7 @@
 
           ${header(
             'ÚLTIMOS APONTAMENTOS: POTES',
-            'Registros das últimas 5 horas'
+            'Últimas 5 horas'
           )}
 
 
@@ -2735,9 +2575,18 @@
 
             <div class="attention">
 
-              ATENÇÃO AO APONTAMENTO •
-              CASO NECESSÁRIO CORREÇÃO,
-              PROCURAR A MARIANA
+              VERMELHO:
+              OBSERVAÇÃO
+              •
+              EFICIÊNCIA &lt;
+              ${numero(
+                dados
+                  .potes
+                  .eficienciaMinima,
+                0
+              )}%
+              •
+              TEMPO PERDIDO
 
             </div>
 
@@ -2823,15 +2672,25 @@
                         "
                       >
 
-                        <td>${escapeHtml(r.hora)}</td>
+                        <td>
+                          ${escapeHtml(r.hora)}
+                        </td>
 
-                        <td>${escapeHtml(r.maquina)}</td>
+                        <td>
+                          ${escapeHtml(r.maquina)}
+                        </td>
 
-                        <td>${escapeHtml(r.turno)}</td>
+                        <td>
+                          ${escapeHtml(r.turno)}
+                        </td>
 
-                        <td>${escapeHtml(r.lider)}</td>
+                        <td>
+                          ${escapeHtml(r.lider)}
+                        </td>
 
-                        <td>${escapeHtml(r.referencia)}</td>
+                        <td>
+                          ${escapeHtml(r.referencia)}
+                        </td>
 
                         <td>
                           <strong>
@@ -2875,11 +2734,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * INDICADOR PRÉ-FORMA
-     * ============================================================
-     */
+    /* ============================================================
+       PRÉ-FORMA
+       ============================================================ */
+
     function telaIndicadorPreforma() {
 
       return `
@@ -2905,9 +2763,7 @@
             <div class="card machine">
 
               <div class="machine-title">
-
                 PRÉ-FORMAS
-
               </div>
 
 
@@ -2939,13 +2795,35 @@
               <div class="machine-footer">
 
                 <span>
-                  Meta: 1.200 peças/h
+
+                  Meta:
+                  ${numero(
+                    dados
+                      .preforma
+                      .meta,
+                    0
+                  )}
+                  peças/h
+
                 </span>
 
+
                 <span>
-                  Refugo:
-                  &lt;
-                  0,5%
+
+                  Verde ≥
+                  ${numero(
+                    dados
+                      .preforma
+                      .eficienciaMinima,
+                    0
+                  )}%
+                  •
+                  Refugo &lt;
+                  ${numero(
+                    dados.metaRefugo,
+                    1
+                  )}%
+
                 </span>
 
               </div>
@@ -2961,18 +2839,7 @@
     }
 
 
-    /**
-     * ============================================================
-     * ÚLTIMOS PRÉ-FORMA
-     * ============================================================
-     */
     function telaUltimosPreforma() {
-
-      const registros =
-        dados
-          .preforma
-          .ultimos;
-
 
       return `
 
@@ -2983,31 +2850,36 @@
 
           ${header(
             'ÚLTIMOS APONTAMENTOS: PRÉ-FORMAS',
-            'Registros das últimas 5 horas'
+            'Últimas 5 horas'
           )}
 
 
           <div class="card recent-card">
 
             ${
-              registros.length === 0
-                ?
-                vazio(
-                  'Nenhum apontamento nas últimas 5 horas'
-                )
-                :
-                tabelaGenerica(
-                  registros,
-                  'preforma'
-                )
+              tabelaGenerica(
+                dados
+                  .preforma
+                  .ultimos,
+                'preforma'
+              )
             }
 
 
             <div class="attention">
 
-              ATENÇÃO AO APONTAMENTO •
-              CASO NECESSÁRIO CORREÇÃO,
-              PROCURAR A MARIANA
+              VERMELHO:
+              OBSERVAÇÃO
+              •
+              EFICIÊNCIA &lt;
+              ${numero(
+                dados
+                  .preforma
+                  .eficienciaMinima,
+                0
+              )}%
+              •
+              TEMPO PERDIDO
 
             </div>
 
@@ -3020,11 +2892,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * INDICADOR TAMPAS
-     * ============================================================
-     */
+    /* ============================================================
+       TAMPAS
+       ============================================================ */
+
     function telaIndicadorTampas() {
 
       return `
@@ -3050,9 +2921,7 @@
             <div class="card machine">
 
               <div class="machine-title">
-
                 TAMPAS
-
               </div>
 
 
@@ -3084,13 +2953,35 @@
               <div class="machine-footer">
 
                 <span>
-                  Meta: 4 fardos/h
+
+                  Meta:
+                  ${numero(
+                    dados
+                      .tampas
+                      .meta,
+                    0
+                  )}
+                  fardos/h
+
                 </span>
 
+
                 <span>
-                  300 tampas/fardo
+
+                  Verde ≥
+                  ${numero(
+                    dados
+                      .tampas
+                      .eficienciaMinima,
+                    0
+                  )}%
                   •
-                  Refugo &lt; 0,5%
+                  Refugo &lt;
+                  ${numero(
+                    dados.metaRefugo,
+                    1
+                  )}%
+
                 </span>
 
               </div>
@@ -3106,18 +2997,7 @@
     }
 
 
-    /**
-     * ============================================================
-     * ÚLTIMOS TAMPAS
-     * ============================================================
-     */
     function telaUltimosTampas() {
-
-      const registros =
-        dados
-          .tampas
-          .ultimos;
-
 
       return `
 
@@ -3128,31 +3008,36 @@
 
           ${header(
             'ÚLTIMOS APONTAMENTOS: TAMPAS',
-            'Registros das últimas 5 horas'
+            'Últimas 5 horas'
           )}
 
 
           <div class="card recent-card">
 
             ${
-              registros.length === 0
-                ?
-                vazio(
-                  'Nenhum apontamento nas últimas 5 horas'
-                )
-                :
-                tabelaGenerica(
-                  registros,
-                  'tampas'
-                )
+              tabelaGenerica(
+                dados
+                  .tampas
+                  .ultimos,
+                'tampas'
+              )
             }
 
 
             <div class="attention">
 
-              ATENÇÃO AO APONTAMENTO •
-              CASO NECESSÁRIO CORREÇÃO,
-              EDITAR NO APLICATIVO
+              VERMELHO:
+              OBSERVAÇÃO
+              •
+              EFICIÊNCIA &lt;
+              ${numero(
+                dados
+                  .tampas
+                  .eficienciaMinima,
+                0
+              )}%
+              •
+              TEMPO PERDIDO
 
             </div>
 
@@ -3165,19 +3050,29 @@
     }
 
 
-    /**
-     * ============================================================
-     * TABELAS PRÉ-FORMA / TAMPAS
-     * ============================================================
-     */
+    /* ============================================================
+       TABELA PRÉ-FORMA / TAMPAS
+       ============================================================ */
+
     function tabelaGenerica(
       registros,
       tipo
     ) {
 
+      if (
+        !registros ||
+        registros.length === 0
+      ) {
+
+        return vazio(
+          'Nenhum apontamento nas últimas 5 horas'
+        );
+
+      }
+
+
       const preforma =
-        tipo ===
-        'preforma';
+        tipo === 'preforma';
 
 
       return `
@@ -3191,7 +3086,9 @@
               <tr>
 
                 <th>Hora</th>
+
                 <th>Turno</th>
+
                 <th>Líder</th>
 
                 ${
@@ -3203,7 +3100,9 @@
                 }
 
                 <th>Refugo</th>
+
                 <th>Tempo perdido</th>
+
                 <th>Observação</th>
 
               </tr>
@@ -3300,15 +3199,203 @@
     }
 
 
-    /**
-     * ============================================================
-     * ROTAÇÃO
-     * ============================================================
-     */
+    /* ============================================================
+       META
+       ============================================================ */
+
+    function metaDisplay(
+      item
+    ) {
+
+      if (
+        item.metaVariavel &&
+        item.metaMin !== null &&
+        item.metaMax !== null &&
+        item.metaMin !==
+        item.metaMax
+      ) {
+
+        return (
+          numero(
+            item.metaMin,
+            0
+          ) +
+          '–' +
+          numero(
+            item.metaMax,
+            0
+          )
+        );
+
+      }
+
+
+      return item.meta === null
+        ? '—'
+        :
+        numero(
+          item.meta,
+          Number.isInteger(
+            Number(item.meta)
+          )
+            ? 0
+            : 1
+        );
+
+    }
+
+
+    /* ============================================================
+       CORES
+       ============================================================ */
+
+    function classeEficiencia(
+      eficiencia,
+      limite
+    ) {
+
+      if (
+        eficiencia === null ||
+        eficiencia === undefined
+      ) {
+
+        return '';
+
+      }
+
+
+      return Number(eficiencia) >=
+        Number(limite)
+          ? 'good'
+          : 'bad';
+
+    }
+
+
+    function classeRefugo(
+      refugoPct,
+      refugo
+    ) {
+
+      if (
+        refugoPct === null ||
+        refugoPct === undefined
+      ) {
+
+        return Number(refugo) > 0
+          ? 'bad'
+          : '';
+
+      }
+
+
+      return Number(refugoPct) <
+        Number(dados.metaRefugo)
+          ? 'good'
+          : 'bad';
+
+    }
+
+
+    function textoRefugo(
+      refugoPct,
+      refugo
+    ) {
+
+      if (
+        refugoPct === null ||
+        refugoPct === undefined
+      ) {
+
+        return Number(refugo) > 0
+          ? 'N/D'
+          : '—';
+
+      }
+
+
+      return numero(
+        refugoPct,
+        2
+      ) + '%';
+
+    }
+
+
+    /* ============================================================
+       STATUS
+       ============================================================ */
+
+    function statusPill(
+      status
+    ) {
+
+      if (
+        status === 'OK'
+      ) {
+
+        return `
+
+          <span
+            class="
+              status-pill
+              status-ok
+            "
+          >
+            ● OK
+          </span>
+
+        `;
+
+      }
+
+
+      if (
+        status === 'ALERTA'
+      ) {
+
+        return `
+
+          <span
+            class="
+              status-pill
+              status-alert
+            "
+          >
+            ● ALERTA
+          </span>
+
+        `;
+
+      }
+
+
+      return `
+
+        <span
+          class="
+            status-pill
+            status-none
+          "
+        >
+          SEM DADOS
+        </span>
+
+      `;
+
+    }
+
+
+    /* ============================================================
+       ROTAÇÃO
+       ============================================================ */
+
     function controlarRotacao() {
 
       if (!dados) {
+
         return;
+
       }
 
 
@@ -3417,11 +3504,10 @@
     }
 
 
-    /**
-     * ============================================================
-     * DOTS
-     * ============================================================
-     */
+    /* ============================================================
+       DOTS
+       ============================================================ */
+
     function criarDots() {
 
       document
@@ -3464,72 +3550,9 @@
     }
 
 
-    /**
-     * ============================================================
-     * STATUS
-     * ============================================================
-     */
-    function statusPill(
-      status
-    ) {
-
-      if (
-        status ===
-        'OK'
-      ) {
-
-        return `
-
-          <span
-            class="
-              status-pill
-              status-ok
-            "
-          >
-            ● OK
-          </span>
-
-        `;
-
-      }
-
-
-      if (
-        status ===
-        'ALERTA'
-      ) {
-
-        return `
-
-          <span
-            class="
-              status-pill
-              status-alert
-            "
-          >
-            ● ALERTA
-          </span>
-
-        `;
-
-      }
-
-
-      return `
-
-        <span
-          class="
-            status-pill
-            status-none
-          "
-        >
-          SEM DADOS
-        </span>
-
-      `;
-
-    }
-
+    /* ============================================================
+       OUTROS
+       ============================================================ */
 
     function vazio(
       mensagem
@@ -3539,9 +3562,7 @@
 
         <div class="empty">
 
-          ${escapeHtml(
-            mensagem
-          )}
+          ${escapeHtml(mensagem)}
 
         </div>
 
@@ -3550,11 +3571,6 @@
     }
 
 
-    /**
-     * ============================================================
-     * FORMATAÇÃO
-     * ============================================================
-     */
     function numero(
       valor,
       casas
@@ -3572,15 +3588,11 @@
 
 
       const n =
-        Number(
-          valor
-        );
+        Number(valor);
 
 
       if (
-        Number.isNaN(
-          n
-        )
+        Number.isNaN(n)
       ) {
 
         return '—';
@@ -3618,10 +3630,7 @@
         valor === null ||
         valor === undefined
           ? ''
-          :
-          String(
-            valor
-          );
+          : String(valor);
 
 
       return div.innerHTML;
